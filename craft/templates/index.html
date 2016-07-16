@@ -1,0 +1,158 @@
+{#
+ # Homepage template
+ # ---------------
+ #
+ # When this template gets loaded, it will be because someone has accessed
+ # http://yoursite.com/ (without any URI). Craft checks to see if you have
+ # a Single section set to be the Homepage (as you do, by default), and
+ # loads the section’s Template (this file). A special ‘entry’ variable
+ # will already be set for you, assigned to the Homepage entry.
+ #
+ # It's worth noting that even if you didn't have a Homepage Single section,
+ # as long as this template remains at craft/templates/index.html, it
+ # would still be the one to get loaded when accessing http://yoursite.com/,
+ # albeit without an ‘entry’ variable already set for you.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+
+{% block heroContent %}
+
+				<h1 class="hero-heading">{% if title is defined %}{{ title }} | {% endif %}{{ siteName }}</h1>
+				<h2 class="hero-subheading">23-25 September 2016 - Timisoara, Romania</h2>
+				<div class="w-row">
+					<div class="w-col w-col-6">
+						<div class="w-clearfix invitee-wrapper" id="maximeTorryBioTrigger">
+							<h3 class="h3-white with">with:</h3><img src="/assets/images/maxime-zaoui-and-torri-smith.jpg" class="invitee-image">
+							<h3 class="invitee-title">Maxime Zzaoui<br><span class="origin">(EU, FR)</span></h3>
+							<h3 class="invitee-title">Torri Zzaoui<br><span class="origin">(US, CA)</span></h3>
+						</div>
+						<div class="maxime-and-torri-bio pro-bio-home mobileBio">
+							<h4>Bio</h4>
+							<p><strong>Maxime</strong> is one of the absolute top stars of the international West Coast Swing scene. We are looking forward to his grandiose lessons with an extra dose of entertainment. He started dancing at the age of 5 in Lyon, France. He studied contemporary at the Conservatory for 6 years before starting his career in the West Coast Swing community. He is now one of the top male professionals, and was the first European to place in the top 5 of the Classic division at the US Open 2012.</p>
+							<p><strong>Torri</strong> has been dancing since she was three. After Jazz and Ballett dancing she fell in love with West Coast Swing and has successfully participated in her first US Open at the age of seven years. She is the first person who won the Classic &amp; Showcase division in the same year at the 2010 US Open.</p>
+							<p>Maxime and Torri recently decided to build a partnership and travel the world teaching together. They love the fun and social atmosphere of West Coast Swing, and always want to make their classes informative yet enjoyable for everyone.</p>
+							<p><a href="http://maximeandtorri.com/" class="proBioMoreLink">maximeandtorri.com</a></p>
+						</div>
+						<!-- /.maxime-and-torri-bio .pro-bio-home -->
+					</div>
+					<!-- .w-col .w-col-6 -->
+					
+					<!-- /.pro-bio-home -->
+					<div class="w-col w-col-6">
+						<div class="w-clearfix invitee-wrapper" id="adamRitaBioTrigger">
+							<h3 class="h3-white with">and</h3><img src="/assets/images/adam_balasy-and-rita_jori.jpg" class="invitee-image">
+							<h3 class="invitee-title">Adam Balasy<br><span class="origin">(EU, HU)</span></h3>
+							<h3 class="invitee-title">Rita Jori<br><span class="origin">(EU, HU)</span></h3>
+						</div>
+						<div class="pro-bio-home adam-and-rita-bio mobileBio">
+							<h4>Bio</h4>
+							<p>Adam and Rita first started teaching Boogie-Woogie together in 2002.</p>
+							<p>They also competed that year and became Hungarian Champions. Many of their students became Hungarian Champions themselves and were successful even internationally. Some of them are still teaching and developing the Boogie community in Hungary.</p>
+							<p>Adam and Rita fell in love with West Coast Swing during a demo class in Munich, 2007. After that they sought every opportunity to learn more and more. One year later, mostly to the gentle push of around 60 of their students, they started teaching it. Very soon Adam and Rita had to give up Boogie teaching completely to have the time and focus to build the Hungarian West Coast Swing Community.</p>
+							<p>Together, they now teach 7 different weekly classes, from beginner to competitor levels. The couple is invited all over Europe, from France to Russia multiple times yearly to share their knowledge and experience.</p>
+							<p>Adam and Rita organize the biggest West Coast Swing events in Hungary: BudaFest and Hungarian Open. These are recognized by the World Swing Dance Council and bring together top teachers from all over the world. They are very proud of having built a Hungarian West Coast Swing Community that is among the 4 largest ones in Europe.</p>
+							<p><a href="http://adamritaswing.com/" class="proBioMoreLink">adamritaswing.com</a></p>
+						</div>
+						<!-- /.adam-and-rita .pro-bio-home -->
+					</div>
+					<!-- /.w-col w-col-6 -->
+
+				</div>
+				<!-- /.w-row -->
+				<div class="maxime-and-torri-bio pro-bio-home deskBio">
+					<h4>Bio</h4>
+					<p><strong>Maxime</strong> is one of the absolute top stars of the international West Coast Swing scene. We are looking forward to his grandiose lessons with an extra dose of entertainment. He started dancing at the age of 5 in Lyon, France. He studied contemporary at the Conservatory for 6 years before starting his career in the West Coast Swing community. He is now one of the top male professionals, and was the first European to place in the top 5 of the Classic division at the US Open 2012.</p>
+					<p><strong>Torri</strong> has been dancing since she was three. After Jazz and Ballett dancing she fell in love with West Coast Swing and has successfully participated in her first US Open at the age of seven years. She is the first person who won the Classic &amp; Showcase division in the same year at the 2010 US Open.</p>
+					<p>Maxime and Torri recently decided to build a partnership and travel the world teaching together. They love the fun and social atmosphere of West Coast Swing, and always want to make their classes informative yet enjoyable for everyone.</p>
+					<p><a href="http://maximeandtorri.com/" class="proBioMoreLink">maximeandtorri.com</a></p>
+				</div>
+				<!-- /.maxime-and-torri-bio .pro-bio-home -->
+
+				<div class="pro-bio-home adam-and-rita-bio deskBio">
+					<h4>Bio</h4>
+					<p>Adam and Rita first started teaching Boogie-Woogie together in 2002.</p>
+					<p>They also competed that year and became Hungarian Champions. Many of their students became Hungarian Champions themselves and were successful even internationally. Some of them are still teaching and developing the Boogie community in Hungary.</p>
+					<p>Adam and Rita fell in love with West Coast Swing during a demo class in Munich, 2007. After that they sought every opportunity to learn more and more. One year later, mostly to the gentle push of around 60 of their students, they started teaching it. Very soon Adam and Rita had to give up Boogie teaching completely to have the time and focus to build the Hungarian West Coast Swing Community.</p>
+					<p>Together, they now teach 7 different weekly classes, from beginner to competitor levels. The couple is invited all over Europe, from France to Russia multiple times yearly to share their knowledge and experience.</p>
+					<p>Adam and Rita organize the biggest West Coast Swing events in Hungary: BudaFest and Hungarian Open. These are recognized by the World Swing Dance Council and bring together top teachers from all over the world. They are very proud of having built a Hungarian West Coast Swing Community that is among the 4 largest ones in Europe.</p>
+					<p><a href="http://adamritaswing.com/" class="proBioMoreLink">adamritaswing.com</a></p>
+				</div>
+				<!-- /.adam-and-rita .pro-bio-home -->
+
+{% endblock %}
+
+{% block content %}
+	<div id="the-plan" class="w-section section">
+		<div class="w-container container">
+			<h2 class="section-heading"><span class="heading-underline">The Plan:</span></h2>
+			<div class="w-row plan-row">
+				<div class="w-col w-col-3 summary-column">
+					<div class="summary-wrapper">
+						<h3 class="summary-heading"><span class="feature-heading-big">Workshops </span>2 days</h3>
+						<p class="sumary-desc"><strong>16 hours</strong> of leveled workshops
+							<br><strong>8 hours</strong> each</p>
+					</div>
+				</div>
+				<div class="w-col w-col-3 summary-column">
+					<div class="summary-wrapper">
+						<h3 class="summary-heading"><span class="feature-heading-big">Parties </span>3 of them!</h3>
+						<p class="sumary-desc">Including a <strong>Medieval Themed Party</strong>
+						</p>
+					</div>
+				</div>
+				<div class="w-col w-col-3 summary-column">
+					<div class="summary-wrapper">
+						<h3 class="summary-heading"><span class="feature-heading-big">JnJ + Themed </span>competitions</h3>
+						<p class="sumary-desc">This is going to be a lot of fun!!</p>
+					</div>
+				</div>
+				<div class="w-col w-col-3 summary-column">
+					<div class="summary-wrapper">
+						<h3 class="summary-heading"><span class="feature-heading-big">Marketplace</span> &nbsp;</h3>
+						<p class="sumary-desc">Bring all your dancing shoes!</p>
+					</div>
+				</div>
+			</div>
+			<h3 class="other-fun-surprises"><span class="white-hack">other</span> fun surprises</h3>
+		</div>
+	</div>
+	<div id="pricing" class="w-section section red">
+		<div class="w-container">
+			<div class="w-row">
+				<div class="w-col w-col-6 pricing-column-1">
+					<h2 class="entry-h2">only 55 EUR</h2>
+					<h3 class="h3-white">Early Bird Price until &nbsp;<span class="early-bird-date">July 31st</span></h3>
+				</div>
+				<div class="w-col w-col-6 pricing-column-2">
+					<h2 class="entry-h2">free entry</h2>
+					<h3 class="h3-white">FOR <span class="early-bird-date">Advanced+</span> WSDC Dancers</h3>
+				</div>
+			</div>
+			<!-- /.row -->
+
+			<div class="buyTicketsWrapper">
+				<a class="button buyTicketsLink" href="http://citadelswing.ro/order.html">
+					<span class="ticketButtonText"><span class="mainTicketText">Buy Tickets on Eventbrite</span> <span class="securePayment">secured by Eventbrite and PayPal</span></span>
+					<span class="ticketLeft"></span>
+					<span class="ticketRight"></span>
+				</a>
+				<p class="securityLinksWrapper">learn about <a href="https://www.eventbrite.com/security/" target="_blank">Eventbrite security</a> and <a href="https://www.paypal.com/ge/webapps/mpp/paypal-safety-and-security" target="_blank">PayPal security</a></p>
+			</div>
+			<!-- /.buyTicketsWrapper -->
+			
+		</div>
+		<!-- /.w-container -->
+	</div>
+	<!-- /#pricing .w-section .section .red -->
+
+	<div id="join-us" class="w-section section join-us">
+		<div class="w-container">
+			<h2 class="join-us-heading">Join us</h2>
+			<h3 class="join-us-subheading">and let's make this event <br>a <strong>success story</strong> together!</h3><a href="https://www.facebook.com/events/1745247759041067/" target="_blank" class="w-button button">Facebook Event Page &gt;</a>
+		</div>
+	</div>
+{% endblock %}

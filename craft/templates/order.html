@@ -1,0 +1,27 @@
+{% extends "_layout" %}
+
+{% block heroContent %}
+	<h1 class="hero-heading smallHeroheading">Tickets!<br/> Get your Tickets here!</h1>
+{% endblock %}
+
+{% block content %}
+
+	<div class="w-section section ticketInstructions">
+		<div class="w-container container" id="levels">
+			<h3>How to select your workshop level (where applicable) </h3>
+			<!-- If you purchase a ticket that includes  access to any workshop, you will be prompted to select your workshop level during the checkout process. This question is asked for each ticket purchased (e.g.: if you buy 2 Early Bird tickets you will need to select the workshop level for each of them separately). Here's how to figure out the right level: -->
+			<p>Some tickets ask for a workshop level. Here's what the different levels are:</p>
+	 
+			<p><strong>Level 2:</strong> you know most WCS basic patterns, but you still don’t feel confident when social dancing. You often feel disconnected from your partner and don’t know how it happened.</p>
+
+			<p><strong>Level 3:</strong> ​You know basics of West Coast Swing and you feel confident when social dancing. You want to learn more about teamwork to make every dance as pleasant as possible. Your  connection loses its elasticity on very fast or very slow songs.</p>
+
+			<p><strong>Level 4:</strong> you are not afraid of any tempo. You can social dance with partners of different levels (beginner to advanced) without any problem. You want to find your own style and start being more musical not only using the beat of the music but every one of its accents; you want to learn new variations, as well as new moves.</p>
+		</div>
+	</div>
+	<div class="ticketIframeWrapper">
+		<iframe  src="//eventbrite.com/tickets-external?eid=26092781211&ref=etckt" frameborder="0" height="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
+	</div>
+	<!-- /.ticketIframeWrapper -->
+
+{% endblock %}
