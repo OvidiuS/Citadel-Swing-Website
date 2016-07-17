@@ -13,7 +13,7 @@
 
 			<h2 class="section-heading"><span class="heading-underline">Saturday September 24<sup>th</sup></span></h2>
 
-			<table>
+			<table class="scheduleTable">
 				<thead>
 					<tr>
 						<td rowspan="2">Time</td>
@@ -37,19 +37,47 @@
 						{% if block.type == "rowWith2items" %}							
 							<tr{{  rowClass }}>
 								<td class="timeColumn">{{ block.time }}</td>
-								<td>{{ block.firstColumnEvent }}</td>
-								<td>{{ block.secondColumnEvent }}</td>
-							</tr>
-							{% if block.time %}
-							<tr class="detailsRow">
-								<td class="scheduleMoreInfo" colspan="2">
-									{{ block.firstColumnEventDetails }}
+								<td>{{ block.firstColumnEvent }}
+									{% if block.firstColumnEventDetails != "" %}
+									<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
+									{% endif %}
 								</td>
+								<td>{{ block.secondColumnEvent }}
+									{% if block.secondColumnEventDetails != "" %}
+									<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
+									{% endif %}
+								</td>
+							</tr>
+							{% if block.firstColumnEventDetails != "" %}
+							<tr class="detailsRow">
+								<td></td>
+								<td class="scheduleMoreInfo" colspan="2">{{ block.firstColumnEventDetails }}</td>
+							</tr>
+							{% endif %}
+							{% if block.secondColumnEventDetails != "" %}
+							<tr class="detailsRow">
+								<td></td>
+								<td class="scheduleMoreInfo" colspan="2">{{ block.secondColumnEventDetails }}</td>
 							</tr>
 							{% endif %}
 							
 						{% elseif block.type == "rowWithSingleItem" %}
-
+							<tr{{  rowClass }}>
+								<td class="timeColumn">{{ block.time }}</td>
+								<td colspan="2">{{ block.commonEvent }}
+								{% if block.eventDetails != "" %}
+								<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
+								{% endif %}
+								</td>
+							</tr>
+							{% if block.eventDetails != ""   %}
+							<tr class="detailsRow">
+								<td></td>
+								<td class="scheduleMoreInfo" colspan="2">
+									{{ block.eventDetails }}
+								</td>
+							</tr>
+							{% endif %}
 						{% endif %}
 					{% endfor %}
 				</tbody>
