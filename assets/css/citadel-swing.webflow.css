@@ -366,6 +366,7 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   margin: 0 auto;
   padding-top:20px;
   height: 880px;
+  background: url('../images/gears.gif') no-repeat center 70px;
 }
 .ticketIframeWrapper  iframe{
   position: absolute; height: 100%; border: none;
