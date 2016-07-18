@@ -27,6 +27,20 @@ return array(
 		'password' => 'root',
 	),
 
+	'vagrantshare.com' => array(
+		// The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
+		'server' => 'localhost',
+
+		// The name of the database to select.
+		'database' => 'scotchbox',
+
+		// The database username to connect with.
+		'user' => 'root',
+
+		// The database password to connect with.
+		'password' => 'root',
+	),
+
 	'.xyz' => array(
 		// The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
 		'server' => 'localhost',
