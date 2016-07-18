@@ -24,5 +24,11 @@ return array(
             'basePath' => '/home/dvsdevxy/public_html/csdev/',
             'baseUrl'  => 'http://csdev.dvsdev.xyz/',
         )
+    ),
+    'heavy-oryx-3590.vagrantshare.com' => array(
+        'environmentVariables' => array(
+            'basePath' => '/home/dvsdevxy/public_html/csdev/',
+            'baseUrl'  => 'http://heavy-oryx-3590.vagrantshare.com/',
+        )
     )
 );

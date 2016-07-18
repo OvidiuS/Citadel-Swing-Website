@@ -4634,14 +4634,16 @@ $( document ).ready(function() {
 
 	$(".shceduleMoreLink").click(function(){
 		$(".cellDetailsVisible").removeClass("cellDetailsVisible");
-		$(".shceduleMoreLink").removeClass("active").children("span").text("+");
+		//$(".shceduleMoreLink")
 		if ($(this).hasClass("active")) {
 			$(".detailsRow").hide();
 			$(".rowDetailsVisible").removeClass("rowDetailsVisible");
+			$('.shceduleMoreLink').removeClass("active").children("span").text("+");
 		}else{
+			$('.shceduleMoreLink').removeClass("active").children("span").text("+");
 			$(".detailsRow").hide();
 			$(this).children("span").text("-");
-			$(this).addClass("active").parent().addClass("cellDetailsVisible");
+			$(this).addClass("active").parent().addClass("cellDetailsVisible").siblings().first().addClass("cellDetailsVisible");
 			var clickedIndex = $(this).parents("tr").children().index($(this).parent());
 			//alert(clickedIndex);
 			$(this).parents("tr").addClass("rowDetailsVisible").nextAll().eq(clickedIndex-1).slideDown(1000);

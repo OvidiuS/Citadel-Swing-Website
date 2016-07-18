@@ -483,15 +483,14 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 .scheduleTable .scheduleMoreInfo {
   text-align: left;
   color: #fff;
+  padding:20px;
  }
 .scheduleTable .detailsRow {
   display: none;
-  background-color: #D90246;
-  
+  background-color: #b9053e; 
  }
  .scheduleTable  .rowDetailsVisible td{
   border-bottom: none;
-
  }
 .scheduleTable  .cellDetailsVisible {
   background-color:#D90246!important;
