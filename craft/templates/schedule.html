@@ -26,7 +26,8 @@
 					</tr>
 				</thead>
 				<tbody>
-					{% for key,block  in entry.saturdayScheduleTable %}
+					{% set sectionMatrix = attribute(entry, "saturdayScheduleTable") %}
+					{% for key,block  in sectionMatrix %}
 
 						{% if key%2 == 0  %}
 							{% set rowClass = ' class="alternateTableRow"' %}
