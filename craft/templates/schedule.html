@@ -8,53 +8,16 @@
 
 	<div class="w-section section">
 		<div class="w-container container">
-			<h2 class="section-heading"><span class="heading-underline">Friday September 23<sup>rd</sup></span></h2>
+
+
+		{% set scheduleDays = ['friday', 'saturday', 'sunday'] %}
+
+		{% for day in scheduleDays %}
 			
+			{% set heading = attribute(entry, day~"Heading") %}
+			{% set matrix = attribute(entry, day~"ScheduleTable") %}
 
-			<h2 class="section-heading"><span class="heading-underline">Saturday September 24<sup>th</sup></span></h2>
-
-			<table>
-				<thead>
-					<tr>
-						<td rowspan="2">Time</td>
-						<td colspan="2">Locations</td>
-					</tr>
-					<tr>
-						
-						<td>Dance Spirit</td>
-						<td>Dance Stage</td>
-					</tr>
-				</thead>
-				<tbody>
-					{% for key,block  in entry.saturdayScheduleTable %}
-
-						{% if key%2 == 0  %}
-							{% set rowClass = ' class="alternateTableRow"' %}
-						{% else %}
-							{% set rowClass = '' %}
-						{% endif %}
-
-						{% if block.type == "rowWith2items" %}							
-							<tr{{  rowClass }}>
-								<td class="timeColumn">{{ block.time }}</td>
-								<td>{{ block.firstColumnEvent }}</td>
-								<td>{{ block.secondColumnEvent }}</td>
-							</tr>
-							{% if block.time %}
-							<tr class="detailsRow">
-								<td class="scheduleMoreInfo" colspan="2">
-									{{ block.firstColumnEventDetails }}
-								</td>
-							</tr>
-							{% endif %}
-							
-						{% elseif block.type == "rowWithSingleItem" %}
-
-						{% endif %}
-					{% endfor %}
-				</tbody>
-			</table>
-			
+			<h2 class="section-heading"><span class="heading-underline">{{ heading }}</span></h2>
 
 			<table class="scheduleTable">
 				<thead>
@@ -69,85 +32,69 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td class="timeColumn">9:30-10:00</td>
-						<td colspan="2">Coffee Morning &amp; Registration <a href="#" class="shceduleMoreLink"><span>+</span> details</a></td>
-					</tr>
-					<tr class="detailsRow">
-						<td></td>
-						<td class="scheduleMoreInfo" colspan="2"><p><strong>Make sure to bring your ticket</strong>, either on your phone or printed. We will need to scan the bar-code on the ticket and give you a bracelet in return. This is a mandatory step, you cannot access any workshops or parties if you do not register.</p><p><strong>Please be on time.</strong> If you are late you can still get registered by a staff member at the door, but we will not delay the schedule for those who are late.</p> </td>
-					</tr>
-					<tr class="alternateTableRow">
-						<td class="timeColumn">10:00-11:00</td>
-						<td><span class="scheduleLvl23">Workshop Lvl. "2-3" Adam &amp; Rita</span><a href="#" class="shceduleMoreLink"><span>+</span> details</a></td>
-						<td><span class="scheduleLvl4">Workshop Lvl. "4+" Maxime &amp; Torri</span><a href="#" class="shceduleMoreLink"><span>+</span> details</a></td>
-					</tr>
-					<tr class="detailsRow">
-						<td></td>
-						<td class="scheduleMoreInfo" colspan="2"><p>This is a workshop for levels 2 &amp; 3 bla bla bla we really need some real text here this is is some text about the workshop.</p></td>
-					</tr>
-					<tr class="detailsRow">
-						<td></td>
-						<td class="scheduleMoreInfo" colspan="2"><p>This is a workshop for levels 4 and above bla bla bla we really need some real text here this is is some text about the workshop.</p></td>
-					</tr>
-					<tr>
-						<td class="timeColumn">11:00-:11:10</td>
-						<td colspan="2">Break</td>
-					</tr>
-					<tr class="alternateTableRow">
-						<td class="timeColumn">11:10-12:10</td>
-						<td><span class="scheduleLvl23">Workshop Lvl. "2-3" Adam &amp; Rita</span></td>
-						<td><span class="scheduleLvl4">Workshop Lvl. "4+" Maxime &amp; Torri</span></td>
-					</tr>
-					<tr>
-						<td class="timeColumn">12:10-13:10</td>
-						<td colspan="2">Lunch Break</td>
-					</tr>
-					<tr class="alternateTableRow">
-						<td class="timeColumn">13:10-14:10</td>
-						<td><span class="scheduleLvl23">Workshop Lvl. "2-3" Maxime &amp; Torri</span></td>
-						<td>Social dance</td>
-					</tr>
-					<tr>
-						<td class="timeColumn">14:10-14:20</td>
-						<td colspan="2">Break</td>
-					</tr>
-					<tr class="alternateTableRow">
-						<td class="timeColumn">14:20-15:20</td>
-						<td><span class="scheduleLvl23">Workshop Lvl. "2-3" Maxime &amp; Torri</span></td>
-						<td><span class="scheduleLvl4">Workshop Lvl. "4+" Adam &amp; Rita</span></td>
-					</tr>
-					<tr>
-						<td class="timeColumn">15:20-15:30</td>
-						<td colspan="2">Break</td>
-					</tr>
-					<tr class="alternateTableRow">
-						<td class="timeColumn">15:30-16:30</td>
-						<td>Social Dance</td>
-						<td><span class="scheduleLvl4">Workshop Lvl. "4+" Adam &amp; Rita</span></td>
-					</tr>
-					<tr>
-						<td class="timeColumn">16:30 - 17:00</td>
-						<td colspan="2">
-							Registration closes for JnJ Competitions!!!	
+
+					
+			{% for key,block  in matrix %}
+
+				{% if key%2 == 0  %}
+					{% set rowClass = ' class="alternateTableRow"' %}
+				{% else %}
+					{% set rowClass = '' %}
+				{% endif %}
+
+				{% if block.type == "rowWith2items" %}							
+					<tr{{  rowClass }}>
+						<td class="timeColumn {{ block.duration }}">{{ block.time }}</td>
+						<td>{{ block.firstColumnEvent }}
+							{% if block.firstColumnEventDetails != "" %}
+							<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
+							{% endif %}
+						</td>
+						<td>{{ block.secondColumnEvent }}
+							{% if block.secondColumnEventDetails != "" %}
+							<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
+							{% endif %}
 						</td>
 					</tr>
+					{% if block.firstColumnEventDetails != "" %}
 					<tr class="detailsRow">
 						<td></td>
-						<td class="scheduleMoreInfo" colspan="2"><p>This is the last chance to register for the Jack &amp; Jill competition. No futher entries will be accepted after this time.</p></td>
+						<td class="scheduleMoreInfo" colspan="2">{{ block.firstColumnEventDetails }}</td>
 					</tr>
-					<tr class="alternateTableRow">
-						<td class="timeColumn">15:30-16:30</td>
-						<td>Social Dance</td>
-						<td><span class="scheduleLvl4">Workshop Lvl. "4+" Adam &amp; Rita</span></td>
+					{% endif %}
+					{% if block.secondColumnEventDetails != "" %}
+					<tr class="detailsRow">
+						<td></td>
+						<td class="scheduleMoreInfo" colspan="2">{{ block.secondColumnEventDetails }}</td>
 					</tr>
-
+					{% endif %}
+					
+				{% elseif block.type == "rowWithSingleItem" %}
+					<tr{{  rowClass }}>
+						<td class="timeColumn {{ block.duration }}">{{ block.time }}</td>
+						<td colspan="2">{{ block.commonEvent }}
+						{% if block.eventDetails != "" %}
+						<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
+						{% endif %}
+						</td>
+					</tr>
+					{% if block.eventDetails != ""   %}
+					<tr class="detailsRow">
+						<td></td>
+						<td class="scheduleMoreInfo" colspan="2">
+							{{ block.eventDetails }}
+						</td>
+					</tr>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
 				</tbody>
 			</table>
+		
+		{% endfor %}
 
-			
 
-			<h2 class="section-heading"><span class="heading-underline">Sunday September 25<sup>th</sup></span></h2>
+
 
 
 		</div>
