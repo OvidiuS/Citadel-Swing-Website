@@ -507,6 +507,15 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 .shceduleMoreLink.active {
   color: #fff;
 }
+.scheduleTable .short {
+  height: 60px;
+}
+.scheduleTable .normal {
+  height: 80px;
+}
+.scheduleTable .long {
+  height: 140px;
+}
 
 /*Footer*/
 .footerSection {
