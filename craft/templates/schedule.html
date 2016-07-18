@@ -44,7 +44,7 @@
 
 				{% if block.type == "rowWith2items" %}							
 					<tr{{  rowClass }}>
-						<td class="timeColumn">{{ block.time }}</td>
+						<td class="timeColumn {{ block.duration }}">{{ block.time }}</td>
 						<td>{{ block.firstColumnEvent }}
 							{% if block.firstColumnEventDetails != "" %}
 							<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
@@ -71,7 +71,7 @@
 					
 				{% elseif block.type == "rowWithSingleItem" %}
 					<tr{{  rowClass }}>
-						<td class="timeColumn">{{ block.time }}</td>
+						<td class="timeColumn {{ block.duration }}">{{ block.time }}</td>
 						<td colspan="2">{{ block.commonEvent }}
 						{% if block.eventDetails != "" %}
 						<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
