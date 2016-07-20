@@ -626,12 +626,23 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
     position: absolute; height: 100%; border: none;
     width: 100%;
   }
+
+  .nav-menu .menu-dropdown-list a{
+    border:none;
+    background-color: #ececec;
+  }
+  .nav-menu .menu-dropdown-list.w--open {
+    box-shadow: none;
+  }
+  .nav-menu .w-dropdown-toggle.w--open {
+    box-shadow: none;
+    border-bottom:none;
+  }
   .textContainer404 {
     float: none;
     width:auto;
     padding-top:20px;
-    text-align: center;
-    
+    text-align: center;  
   }
   .big404Image {
     display:none;
