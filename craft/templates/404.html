@@ -19,8 +19,20 @@
 {% extends "_layout" %}
 {% set title = "404" %}
 
-{% block content %}
-	<h1>Page not found</h1>
+{% block heroContent %}
+	<img class="big404Image" src="/assets/images/404.png" alt="404" />
+	<div class="textContainer404">
+		<h1 class="heading404"><strike>We couldn't find the page...</strike></h1>
+		<h2 class="hero-heading smallHeroheading subheading404">This is a new styling!</h2>
+		<h3 class="copy404">just smile &amp; keep dancing :) <br/> and use the main menu</h3>
+	</div>
+{% endblock %}
 
-	<p>What’s worse, a hilarious 404 page can’t be found either.</p>
+
+{% block content %}
+	<!-- <div class="w-section section">
+		<div class="w-container container">
+			<img src="/assets/images/404.png" alt="404" />
+		</div>
+	</div> -->
 {% endblock %}

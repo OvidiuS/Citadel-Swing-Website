@@ -537,7 +537,28 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   text-transform: uppercase;
   font-family: Oswald, sans-serif;
  }*/
-
+/*404*/
+.textContainer404 {
+  float: right;
+  width:50%;
+  padding-top:20px;
+}
+.big404Image {
+  float:left;
+  width: 40%;
+  margin-right:10%;
+}
+.heading404 {
+  margin-bottom:40px;
+  font-size: 28px;
+}
+.subheading404 {
+  font-family: Arial, sans-serif;
+}
+.copy404 {
+  float:right;
+  color: #fff;
+}
 @media (max-width: 991px) {
   .main-menu-item {
     color: #d90246;
