@@ -87,10 +87,14 @@
 	<div class="w-section hero">
 		<div data-collapse="medium" data-animation="default" data-duration="400" data-contain="1" data-doc-height="1" data-ix="scroll-nav" class="w-nav navbar">
 			<div class="w-container">
-				<a class="brand w-nav-brand" href="#"><img src="/assets/images/logo-small-white2.png" width="254">
+				<a class="brand w-nav-brand" href="/"><img src="/assets/images/logo-small-white2.png" width="254">
 				</a>
 				<nav class="nav-menu w-nav-menu" role="navigation">
-					<a class="main-menu-item w-nav-link" href="#home">Home</a>
+					{% if entry.section.handle == "homepage" %}
+						<a class="main-menu-item w-nav-link" href="#home">Home</a>
+					{% else %}
+						<a class="main-menu-item w-nav-link" href="/">Home</a>
+					{% endif %}
 					<div class="w-dropdown" data-delay="0">
 						<div class="main-menu-item w-dropdown-toggle">
 							<div>Info</div>
