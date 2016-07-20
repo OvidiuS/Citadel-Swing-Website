@@ -540,13 +540,14 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 /*404*/
 .textContainer404 {
   float: right;
-  width:50%;
+  width:60%;
   padding-top:20px;
+  text-align: center;
+  
 }
 .big404Image {
   float:left;
   width: 40%;
-  margin-right:10%;
 }
 .heading404 {
   margin-bottom:40px;
@@ -554,9 +555,11 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 }
 .subheading404 {
   font-family: Arial, sans-serif;
+  font-size: 4em;
+  padding-left:0;
 }
 .copy404 {
-  float:right;
+  /*float:right;*/
   color: #fff;
 }
 @media (max-width: 991px) {
@@ -622,6 +625,16 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   .ticketIframeWrapper  iframe{
     position: absolute; height: 100%; border: none;
     width: 100%;
+  }
+  .textContainer404 {
+    float: none;
+    width:auto;
+    padding-top:20px;
+    text-align: center;
+    
+  }
+  .big404Image {
+    display:none;
   }
 }
 
@@ -802,6 +815,9 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   .buyTicketsLink:hover .ticketButtonText {
     padding: 60px 39px 40px 58px;
   }
-
+  .copy404 {
+    margin-left:2%;
+    margin-right: 2%;
+  }
 }
 
