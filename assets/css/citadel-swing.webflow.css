@@ -483,15 +483,14 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 .scheduleTable .scheduleMoreInfo {
   text-align: left;
   color: #fff;
+  padding:20px;
  }
 .scheduleTable .detailsRow {
   display: none;
-  background-color: #D90246;
-  
+  background-color: #b9053e; 
  }
  .scheduleTable  .rowDetailsVisible td{
   border-bottom: none;
-
  }
 .scheduleTable  .cellDetailsVisible {
   background-color:#D90246!important;
@@ -506,6 +505,15 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 }
 .shceduleMoreLink.active {
   color: #fff;
+}
+.scheduleTable .short {
+  height: 60px;
+}
+.scheduleTable .normal {
+  height: 80px;
+}
+.scheduleTable .long {
+  height: 140px;
 }
 
 /*Footer*/
@@ -529,7 +537,31 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   text-transform: uppercase;
   font-family: Oswald, sans-serif;
  }*/
-
+/*404*/
+.textContainer404 {
+  float: right;
+  width:60%;
+  padding-top:20px;
+  text-align: center;
+  
+}
+.big404Image {
+  float:left;
+  width: 40%;
+}
+.heading404 {
+  margin-bottom:40px;
+  font-size: 28px;
+}
+.subheading404 {
+  font-family: Arial, sans-serif;
+  font-size: 4em;
+  padding-left:0;
+}
+.copy404 {
+  /*float:right;*/
+  color: #fff;
+}
 @media (max-width: 991px) {
   .main-menu-item {
     color: #d90246;
@@ -594,6 +626,7 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
     position: absolute; height: 100%; border: none;
     width: 100%;
   }
+
   .nav-menu .menu-dropdown-list a{
     border:none;
     background-color: #ececec;
@@ -604,6 +637,15 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   .nav-menu .w-dropdown-toggle.w--open {
     box-shadow: none;
     border-bottom:none;
+  }
+  .textContainer404 {
+    float: none;
+    width:auto;
+    padding-top:20px;
+    text-align: center;  
+  }
+  .big404Image {
+    display:none;
   }
 }
 
@@ -784,6 +826,9 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   .buyTicketsLink:hover .ticketButtonText {
     padding: 60px 39px 40px 58px;
   }
-
+  .copy404 {
+    margin-left:2%;
+    margin-right: 2%;
+  }
 }
 
