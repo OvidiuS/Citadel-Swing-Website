@@ -21,13 +21,13 @@
 
 			<table class="scheduleTable">
 				<thead>
-					<tr>
-						<td rowspan="2">Time</td>
+					<tr class="scheduleHeaderRow">
+						<td rowspan="2" class="tableHeaderBorderRightDashed">Time</td>
 						<td colspan="2">Locations</td>
 					</tr>
-					<tr>
+					<tr class="scheduleHeaderRow">
 						
-						<td>Dance Spirit</td>
+						<td class="tableHeaderBorderRight">Dance Spirit</td>
 						<td>Dance Stage</td>
 					</tr>
 				</thead>
@@ -45,7 +45,7 @@
 				{% if block.type == "rowWith2items" %}							
 					<tr{{  rowClass }}>
 						<td class="timeColumn {{ block.duration }}">{{ block.time }}</td>
-						<td>{{ block.firstColumnEvent }}
+						<td class="scheduleCellBorderRight">{{ block.firstColumnEvent }}
 							{% if block.firstColumnEventDetails != "" %}
 							<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
 							{% endif %}
@@ -58,13 +58,13 @@
 					</tr>
 					{% if block.firstColumnEventDetails != "" %}
 					<tr class="detailsRow">
-						<td></td>
+						<td class="detailsrowBorderRightDashed"></td>
 						<td class="scheduleMoreInfo" colspan="2">{{ block.firstColumnEventDetails }}</td>
 					</tr>
 					{% endif %}
 					{% if block.secondColumnEventDetails != "" %}
 					<tr class="detailsRow">
-						<td></td>
+						<td class="detailsrowBorderRightDashed"></td>
 						<td class="scheduleMoreInfo" colspan="2">{{ block.secondColumnEventDetails }}</td>
 					</tr>
 					{% endif %}
@@ -80,7 +80,7 @@
 					</tr>
 					{% if block.eventDetails != ""   %}
 					<tr class="detailsRow">
-						<td></td>
+						<td class="detailsrowBorderRightDashed"></td>
 						<td class="scheduleMoreInfo" colspan="2">
 							{{ block.eventDetails }}
 						</td>
