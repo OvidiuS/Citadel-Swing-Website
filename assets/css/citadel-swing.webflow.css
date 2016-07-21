@@ -452,7 +452,8 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   
  }
  .scheduleTable tr {
- 
+  border-left:1px solid #d0d0d0;
+    border-right:1px solid #d0d0d0;
  }
  .scheduleTable .alternateTableRow {
   background-color: #e6e6e6;
@@ -460,7 +461,7 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
  .scheduleTable td{
     text-align: center;
     
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #d0d0d0;
     padding: 5px;
  }
  .scheduleTable  .timeColumn {
@@ -518,7 +519,29 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 .scheduleTable .scheduleMoreInfo a{
   color: #e7ffd1;
 }
-
+.scheduleTable .scheduleHeaderRow {
+  background-color: #333;
+  color: #fff;
+}
+.scheduleTable .scheduleHeaderRow td {
+  padding: 20px 20px;
+  border-bottom: 1px solid white;
+}
+.tableHeaderBorderRight {
+  border-right: 1px solid white;
+}
+.tableHeaderBorderRightDashed {
+    border-right: 1px dashed white;
+}
+.timeColumn {
+  border-right: 1px dashed #d0d0d0;
+}
+.scheduleCellBorderRight{
+  border-right: 1px solid #d0d0d0;
+}
+.detailsrowBorderRightDashed {
+  border-right:1px dashed white;
+}
 /*Footer*/
 .footerSection {
   text-align: center;
