@@ -562,6 +562,12 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   /*float:right;*/
   color: #fff;
 }
+
+/* THE PLAN */
+.alternateSection {
+    background-color: #e2e2e2;
+}
+
 @media (max-width: 991px) {
   .main-menu-item {
     color: #d90246;
