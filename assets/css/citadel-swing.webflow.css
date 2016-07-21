@@ -515,6 +515,9 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 .scheduleTable .long {
   height: 140px;
 }
+.scheduleTable .scheduleMoreInfo a{
+  color: #e7ffd1;
+}
 
 /*Footer*/
 .footerSection {
