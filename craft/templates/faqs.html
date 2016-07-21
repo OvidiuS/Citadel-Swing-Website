@@ -1,0 +1,54 @@
+{% extends "_layout" %}
+
+{% block heroContent %}
+	<h1 class="hero-heading smallHeroheading">Frequently Asked Questions</h1>
+{% endblock %}
+
+{% block content %}
+	{% if entry.faqs[0].type != "heading" %}
+	
+	<div class="w-section section">
+		<div class="w-container container">
+	{% endif %}
+			{% set sectionCount = 1 %}
+
+		{% for key,block  in entry.faqs %}
+			{% if block.type == "questionAnswer" %}							
+			
+			<h3 class="faqQuestion">{{ block.question }}</h3>
+			<div class="faqAnswer">
+				{{ block.answer }}
+			</div>
+			<!-- /.faqAnswer -->	
+								
+			{% elseif block.type == "heading" %}
+		</div>
+		<!-- /.w-container container-->
+	</div>
+	<!-- /.w-section section-->
+
+	{% if sectionCount%2 == 0  %}
+		{% set sectionAlternate = ' alternateSection' %}
+	{% else %}
+		{% set sectionAlternate = '' %}
+	{% endif %}
+	{% set sectionCount  = sectionCount + 1 %}
+
+	<div class="w-section section{{sectionAlternate}}">
+		<div class="w-container container">
+
+		<h2 class="section-heading"><span class="heading-underline">{{ block.heading }}</span></h2>
+
+			{% endif %}
+		{% endfor %}
+			
+			{% set noOfHeadings = entry.faqs.type('heading') | length %}
+
+	{% if noOfHeadings > 0 %}					
+		</div>
+		<!-- /.w-container container-->
+	</div>
+	<!-- /.w-section section-->
+	{% endif %}
+
+{% endblock %}
