@@ -481,7 +481,16 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   font-size: 14px;
   color: #D90246;
   font-weight: bold;
+  background: url('../images/more-less.png') no-repeat top left;
+  padding: 6px 0 6px 0;
+  text-indent: -9999em;
+  display: inline-block;
+  width: 32px;
  }
+ .shceduleMoreLink.active {
+  color: #fff;
+  background-position: bottom left;
+}
 .scheduleTable .scheduleMoreInfo {
   text-align: left;
   color: #fff;
@@ -504,9 +513,6 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 }
 .redTest {
   background-color: red;
-}
-.shceduleMoreLink.active {
-  color: #fff;
 }
 .scheduleTable .short {
   height: 60px;
