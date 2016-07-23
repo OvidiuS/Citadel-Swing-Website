@@ -42,15 +42,34 @@
 					{% set rowClass = '' %}
 				{% endif %}
 
-				{% if block.type == "rowWith2items" %}							
+				{% if block.type == "rowWith2items" %}
+					
+
+					{% if "Adam" in block.firstColumnEvent %}
+						{% set firstCellColorClass = " cellAdamRita" %}
+					{% elseif "Maxime" in block.firstColumnEvent %}
+						{% set firstCellColorClass = " cellMaximeTorri" %}
+					{% else %}
+						{% set firstCellColorClass = "" %}
+					{% endif %}
+
+					{% if "Adam" in block.secondColumnEvent %}
+						{% set secondCellColorClass = ' class=cellAdamRita' %}
+					{% elseif "Maxime" in block.secondColumnEvent %}
+						{% set secondCellColorClass = ' class=cellMaximeTorri' %}
+					{% else %}
+						{% set secondCellColorClass = '' %}
+					{% endif %}
+
+															
 					<tr{{  rowClass }}>
 						<td class="timeColumn {{ block.duration }}">{{ block.time }}</td>
-						<td class="scheduleCellBorderRight">{{ block.firstColumnEvent }}
+						<td class="scheduleCellBorderRight{{ firstCellColorClass }}">{{ block.firstColumnEvent }}
 							{% if block.firstColumnEventDetails != "" %}
 							<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
 							{% endif %}
 						</td>
-						<td>{{ block.secondColumnEvent }}
+						<td{{ secondCellColorClass }}>{{ block.secondColumnEvent }}
 							{% if block.secondColumnEventDetails != "" %}
 							<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
 							{% endif %}
