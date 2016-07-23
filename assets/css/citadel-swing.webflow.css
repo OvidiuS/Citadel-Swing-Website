@@ -542,6 +542,12 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 .detailsrowBorderRightDashed {
   border-right:1px dashed white;
 }
+.cellAdamRita {
+  background-color: #00ff00;
+}
+.cellMaximeTorri {
+  background-color: #ffff00;
+}
 /*Footer*/
 .footerSection {
   text-align: center;
