@@ -141,6 +141,7 @@ h3 {
 .invitee-wrapper {
   overflow: hidden;
   padding: 0 0 35px 7%;
+  cursor:pointer;
 }
 
 .invitee-image {
