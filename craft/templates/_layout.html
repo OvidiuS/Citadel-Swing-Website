@@ -91,7 +91,7 @@
 				<a class="brand w-nav-brand" href="/"><img src="/assets/images/logo-small-white2.png" width="254">
 				</a>
 				<nav class="nav-menu w-nav-menu" role="navigation">
-					{% if entry.section.handle == "homepage" %}
+					{% if entry is defined and  entry.section.handle == "homepage" %}
 						<a class="main-menu-item w-nav-link" href="#home">Home</a>
 					{% else %}
 						<a class="main-menu-item w-nav-link" href="/">Home</a>
