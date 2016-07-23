@@ -26,9 +26,12 @@
 						<td colspan="2">Locations</td>
 					</tr>
 					<tr class="scheduleHeaderRow">
-						
+						{% if day != "friday" %}
 						<td class="tableHeaderBorderRight">Dance Spirit</td>
 						<td>Dance Stage</td>
+						{% else %}
+						<td class="tableHeaderBorderRight" colspan="2">Dance Spirit</td>	
+						{% endif %}
 					</tr>
 				</thead>
 				<tbody>
