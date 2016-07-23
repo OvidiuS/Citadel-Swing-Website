@@ -486,6 +486,7 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   text-indent: -9999em;
   display: inline-block;
   width: 32px;
+  margin-left: 3px;
  }
  .shceduleMoreLink.active {
   color: #fff;
