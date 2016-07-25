@@ -144,6 +144,10 @@ h3 {
   cursor:pointer;
 }
 .invitee-wrapper:hover {
+  background-color: rgba(179, 179, 179, 0.24);
+}
+.selectedForBio:hover {
+ background-color: white;
 }
 .invitee-image {
   width: 40%;
