@@ -876,5 +876,19 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
     margin-left:2%;
     margin-right: 2%;
   }
+  .scheduleTable h3 {
+    font-size: 18px;
+    line-height: 1em;
+  }
+  .scheduleTable .shceduleMoreLink {
+    display: block;
+    margin: 5px auto;
+  }
+  .detailsrowBorderRightDashed {
+    display: none; 
+  }
+  .scheduleMoreInfo {
+    column-span: 3;
+  }
 }
 
