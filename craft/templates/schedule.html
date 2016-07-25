@@ -1,7 +1,7 @@
 {% extends "_layout" %}
 
 {% block heroContent %}
-	<h1 class="hero-heading smallHeroheading">Tickets!<br/> Get your Tickets here!</h1>
+	<h1 class="hero-heading smallHeroheading">Full Schedule</h1>
 {% endblock %}
 
 {% block content %}
@@ -69,25 +69,25 @@
 						<td class="timeColumn {{ block.duration }}">{{ block.time }}</td>
 						<td class="scheduleCellBorderRight{{ firstCellColorClass }}">{{ block.firstColumnEvent }}
 							{% if block.firstColumnEventDetails != "" %}
-							<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
+							<a href="#" class="shceduleMoreLink">details</a>
 							{% endif %}
 						</td>
 						<td{{ secondCellColorClass }}>{{ block.secondColumnEvent }}
 							{% if block.secondColumnEventDetails != "" %}
-							<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
+							<a href="#" class="shceduleMoreLink">details</a>
 							{% endif %}
 						</td>
 					</tr>
 					{% if block.firstColumnEventDetails != "" %}
 					<tr class="detailsRow">
 						<td class="detailsrowBorderRightDashed"></td>
-						<td class="scheduleMoreInfo" colspan="2">{{ block.firstColumnEventDetails }}</td>
+						<td class="scheduleMoreInfo" colspan="3">{{ block.firstColumnEventDetails }}</td>
 					</tr>
 					{% endif %}
 					{% if block.secondColumnEventDetails != "" %}
 					<tr class="detailsRow">
 						<td class="detailsrowBorderRightDashed"></td>
-						<td class="scheduleMoreInfo" colspan="2">{{ block.secondColumnEventDetails }}</td>
+						<td class="scheduleMoreInfo" colspan="3">{{ block.secondColumnEventDetails }}</td>
 					</tr>
 					{% endif %}
 					
@@ -96,14 +96,14 @@
 						<td class="timeColumn {{ block.duration }}">{{ block.time }}</td>
 						<td colspan="2">{{ block.commonEvent }}
 						{% if block.eventDetails != "" %}
-						<a href="#" class="shceduleMoreLink"><span>+</span> details</a>
+						<a href="#" class="shceduleMoreLink">details</a>
 						{% endif %}
 						</td>
 					</tr>
 					{% if block.eventDetails != ""   %}
 					<tr class="detailsRow">
 						<td class="detailsrowBorderRightDashed"></td>
-						<td class="scheduleMoreInfo" colspan="2">
+						<td class="scheduleMoreInfo" colspan="3">
 							{{ block.eventDetails }}
 						</td>
 					</tr>

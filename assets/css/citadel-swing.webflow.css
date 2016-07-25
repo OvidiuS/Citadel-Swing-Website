@@ -481,7 +481,17 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   font-size: 14px;
   color: #D90246;
   font-weight: bold;
+  background: url('../images/more-less.png') no-repeat top left;
+  padding: 6px 0 6px 0;
+  text-indent: -9999em;
+  display: inline-block;
+  width: 32px;
+  margin-left: 3px;
  }
+ .shceduleMoreLink.active {
+  color: #fff;
+  background-position: bottom left;
+}
 .scheduleTable .scheduleMoreInfo {
   text-align: left;
   color: #fff;
@@ -504,9 +514,6 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 }
 .redTest {
   background-color: red;
-}
-.shceduleMoreLink.active {
-  color: #fff;
 }
 .scheduleTable .short {
   height: 60px;
@@ -868,6 +875,20 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   .copy404 {
     margin-left:2%;
     margin-right: 2%;
+  }
+  .scheduleTable h3 {
+    font-size: 18px;
+    line-height: 1em;
+  }
+  .scheduleTable .shceduleMoreLink {
+    display: block;
+    margin: 5px auto;
+  }
+  .detailsrowBorderRightDashed {
+    display: none; 
+  }
+  .scheduleMoreInfo {
+    column-span: 3;
   }
 }
 
