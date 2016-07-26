@@ -86,35 +86,36 @@
 {% endblock %}
 
 {% block content %}
+	{% set thePlanSlug = craft.entries.section('thePlan').first().slug %}
 	<div id="the-plan" class="w-section section">
 		<div class="w-container container">
 			<h2 class="section-heading"><span class="heading-underline">The Plan:</span></h2>
 			<div class="w-row plan-row">
 				<div class="w-col w-col-3 summary-column">
-					<div class="summary-wrapper">
+					<a class="summary-wrapper" href="{{ thePlanSlug }}#workshops">
 						<h3 class="summary-heading"><span class="feature-heading-big">Workshops </span>2 days</h3>
 						<p class="sumary-desc"><strong>16 hours</strong> of leveled workshops
 							<br><strong>8 hours</strong> each</p>
-					</div>
+					</a>
 				</div>
 				<div class="w-col w-col-3 summary-column">
-					<div class="summary-wrapper">
+					<a class="summary-wrapper" href="{{ thePlanSlug }}#parties">
 						<h3 class="summary-heading"><span class="feature-heading-big">Parties </span>3 of them!</h3>
 						<p class="sumary-desc">Including a <strong>Medieval Themed Party</strong>
 						</p>
-					</div>
+					</a>
 				</div>
 				<div class="w-col w-col-3 summary-column">
-					<div class="summary-wrapper">
+					<a class="summary-wrapper" href="{{ thePlanSlug }}#jnj-and-competitions">
 						<h3 class="summary-heading"><span class="feature-heading-big">JnJ + Themed </span>competitions</h3>
 						<p class="sumary-desc">This is going to be a lot of fun!!</p>
-					</div>
+					</a>
 				</div>
 				<div class="w-col w-col-3 summary-column">
-					<div class="summary-wrapper">
+					<a class="summary-wrapper" href="{{ thePlanSlug }}#marketplace">
 						<h3 class="summary-heading"><span class="feature-heading-big">Marketplace</span> &nbsp;</h3>
 						<p class="sumary-desc">Bring all your dancing shoes!</p>
-					</div>
+					</a>
 				</div>
 			</div>
 			<h3 class="other-fun-surprises"><span class="white-hack">other</span> fun surprises</h3>
