@@ -221,23 +221,33 @@ h3 {
   text-align: right;
   text-shadow: 0 3px 0 #fff, 0 -4px 0 #fff, -3px 0 0 #fff;
 }
-
+.summary-wrapper {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+.summary-wrapper:hover {
+  color: #d90246;
+}
+.summary-wrapper:hover .summary-heading{
+  border-bottom: 1px dashed #333;
+}
+.summary-wrapper:hover .summary-heading span {
+   color: #333;
+}
 .heading-underline {
   border-bottom: 3px solid #d90246;
 }
-
 .origin {
   color: #ff8b8b;
   font-size: 14px;
   text-shadow: none;
 }
-
 .h3-white {
   padding-left: 33px;
   font-family: Oswald, sans-serif;
   color: #2c2525;
 }
-
 .h3-white.with {
   color: #ffa3a3;
 }
