@@ -613,6 +613,18 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
     background-color: #e2e2e2;
 }
 
+.center {
+  text-align:center;
+}
+.headerInenrButton {
+  margin-left: 6%;
+  margin-top: 20px;
+  background-color: transparent;
+}
+.headerInenrButton:hover{
+  background-color: #db1464;
+}
+
 @media (max-width: 991px) {
   .main-menu-item {
     color: #d90246;
