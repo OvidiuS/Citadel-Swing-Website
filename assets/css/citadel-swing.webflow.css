@@ -121,7 +121,7 @@ h3 {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .54);
 }
 .main-menu-item.subitem {
-  border: 1px solid #d90246;
+  border-top: 1px solid #d90246;
   background-color: #fff;
   color: #d90246;
 }
