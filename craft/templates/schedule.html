@@ -10,7 +10,8 @@
 
 	<div class="w-section section">
 		<div class="w-container container">
-
+		
+		{% cache for 1 week %}
 
 		{% set scheduleDays = ['friday', 'saturday', 'sunday'] %}
 
@@ -116,6 +117,8 @@
 			</table>
 		
 		{% endfor %}
+		
+		{% endcache %}
 
 		<div class="center">
 			<a href="/assets/Citadel-Swing-2016-Schedule.pdf" target="_blank" class="w-button button">Downloadable Schedule (50 kb .pdf)</a>
