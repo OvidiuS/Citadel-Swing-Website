@@ -20,7 +20,11 @@ The SEOmetrics feature requires PHP 5.4 or later and that you have the [php-xml 
 
 ## Overview
 
-SEOmatic allows you to quickly get a website up and running with a robust, comprehensive SEO strategy.  It is also implemented in a Craft-y way, in that it is also flexible and customizable.
+### Video overview of SEOmatic:
+
+[![Video Overview of SEOmatic](https://img.youtube.com/vi/f1149YVEF_0/0.jpg)](https://www.youtube.com/watch?v=f1149YVEF_0)
+
+SEOmatic allows you to quickly get a website up and running with a robust, comprehensive SEO strategy.  It is also implemented in a Craft-y way, in that it is also flexible and customizable.  The SEOmetrics feature scans your content for focus keywords, and offers analysis on how to improve your SEO.
 
 It implements [JSON-LD](https://developers.google.com/schemas/formats/json-ld?hl=en) microdata, [Dublin Core](http://dublincore.org) core metadata, [Twitter Cards](https://dev.twitter.com/cards/overview) tags, [Facebook OpenGraph](https://developers.facebook.com/docs/sharing/opengraph) tags, [Humans.txt](http://humanstxt.org) authorship accreditation, and as well as HTML meta tags.
 
@@ -50,6 +54,33 @@ Some things to do, and ideas for potential features:
 * [feature] Provide SiteMap functionality.  Yes, it's SEO-related, but seems like it might be better to keep SEOmatic focused (?)
 
 ## Changelog
+
+### 1.1.28 -- 2016.07.27
+
+* [Added] Added modified_time and published_time to OpenGraph articles when an SEOmatic Meta FieldType is used
+* [Improved] Safeguard against 'Undefined index: seoImageTransform'
+* [Fixed] Handle non-posted entries
+* [Fixed] Fixed an issue with getJsonLD($element)
+* [Improved] Updated the README.md
+
+### 1.1.27 -- 2016.07.26
+
+* [Fixed] Fixed a regression with Entry Meta cascade
+* [Fixed] Fixed an issue with SEOmatic FieldTypes on categories
+* [Fixed] Fixed invalid releases.json
+* [Improved] We now strip all control characters (including \n and \r) from the JSON-LD arrays
+* [Improved] Updated the README.md
+
+### 1.1.26 -- 2016.07.25
+
+* [Added] Added Main Entity of Page JSON-LD microdata
+* [Added] Added the method getJsonLD($element) to the FieldType model, so you can get the Main Entity of Page JSON-LD for an arbitrary entry (maybe in a craft.entries loop, for instance)
+* [Improved] The 'logo' and 'image' in Creator and Identity JSON-LD is now an ImageObject
+* [Improved] Added a space after each keyword in SEOmetrics to prevent horizontal scrolling due to frame overflow
+* [Fixed] Fixed the locale of the transform fields in the FieldType
+* [Fixed] Fix for empty SEO Titles for breadcrumbs
+* [Improved] Updated the DOCS.md and wiki docs
+* [Improved] Updated the README.md
 
 ### 1.1.25 -- 2016.07.19
 

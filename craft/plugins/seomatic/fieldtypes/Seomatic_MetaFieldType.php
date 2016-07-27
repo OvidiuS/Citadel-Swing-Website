@@ -31,6 +31,9 @@ class Seomatic_MetaFieldType extends BaseFieldType
         craft()->templates->includeCssResource('seomatic/css/bootstrap-tokenfield.css');
         craft()->templates->includeCssResource('seomatic/css/style.css');
         craft()->templates->includeCssResource('seomatic/css/field.css');
+        craft()->templates->includeJsResource('seomatic/js/main_entity_type_list.js');
+        craft()->templates->includeJs("var metaFieldPrefix='" . $namespacedId . "';");
+        craft()->templates->includeJsResource('seomatic/js/meta.js');
         craft()->templates->includeJsResource('seomatic/js/field.js');
         craft()->templates->includeJsResource('seomatic/js/jquery.bpopup.min.js');
         craft()->templates->includeJsResource('seomatic/js/prism.min.js');
@@ -168,6 +171,9 @@ class Seomatic_MetaFieldType extends BaseFieldType
             return array(
                 'assetSources' => AttributeType::Mixed,
 
+                'seoMainEntityCategory' => array(AttributeType::String, 'default' => 'CreativeWork'),
+                'seoMainEntityOfPage' => array(AttributeType::String, 'default' => 'WebPage'),
+
                 'seoTitle' => AttributeType::String,
                 'seoTitleSource' => array(AttributeType::String, 'default' => 'field'),
                 'seoTitleSourceField' => array(AttributeType::String, 'default' => 'title'),
@@ -245,9 +251,14 @@ class Seomatic_MetaFieldType extends BaseFieldType
         else
             $titleLength = ($titleLength - strlen(" | ") - strlen($siteMeta['siteSeoName']));
 
+        craft()->templates->includeCssResource('seomatic/css/bootstrap-tokenfield.css');
         craft()->templates->includeCssResource('seomatic/css/style.css');
         craft()->templates->includeCssResource('seomatic/css/field.css');
+        craft()->templates->includeJsResource('seomatic/js/main_entity_type_list.js');
+        craft()->templates->includeJs("var metaFieldPrefix='types-Seomatic_Meta-';");
         craft()->templates->includeJsResource('seomatic/js/field_settings.js');
+        craft()->templates->includeJsResource('seomatic/js/meta.js');
+        craft()->templates->includeJsResource('seomatic/js/bootstrap-tokenfield.min.js');
 
         $assetElementType = craft()->elements->getElementType(ElementType::Asset);
         return craft()->templates->render('seomatic/field_settings', array(
@@ -287,6 +298,9 @@ class Seomatic_MetaFieldType extends BaseFieldType
         {
             $value = new Seomatic_MetaFieldModel();
 
+            $value->seoMainEntityCategory = $this->getSettings()->seoMainEntityCategory;
+            $value->seoMainEntityOfPage = $this->getSettings()->seoMainEntityOfPage;
+
             $value->seoTitle = $this->getSettings()->seoTitle;
             $value->seoTitleUnparsed = $this->getSettings()->seoTitle;
             $value->seoTitleSource = $this->getSettings()->seoTitleSource;
@@ -323,6 +337,15 @@ class Seomatic_MetaFieldType extends BaseFieldType
             $value->seoDescriptionUnparsed = $value->seoDescription;
         if ($value->seoKeywordsUnparsed == "")
             $value->seoKeywordsUnparsed = $value->seoKeywords;
+
+/* -- If we're attached to a Commerce_Product element, always have the Main Enity of Page be a Product */
+
+        $elemType = $element->getElementType();
+        if ($elemType == "Commerce_Product")
+        {
+            $value->seoMainEntityCategory = "Product";
+            $value->seoMainEntityOfPage = "";
+        }
 
         if ($element)
         {
