@@ -12,6 +12,13 @@ return array(
 		'devMode' => true
 	),
 
+    'citadelswing.ro' => array(
+        'environmentVariables' => array(
+            'basePath' => '/home/citadels/public_html/',
+            'baseUrl'  => 'http://citadelswing.ro/',
+        )
+    ),
+
 	'citadelswing.dev' => array(
         'environmentVariables' => array(
             'basePath' => '/var/www/public/',
