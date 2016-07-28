@@ -13,6 +13,20 @@ return array(
         'tablePrefix' => 'craft',
     ),
 
+    '.ro' => array(
+		// The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
+		'server' => 'localhost',
+
+		// The name of the database to select.
+		'database' => 'citadels_web',
+
+		// The database username to connect with.
+		'user' => 'citadels_savescuo',
+
+		// The database password to connect with.
+		'password' => 'xnqV#^$.4#ft',
+	),
+
 	'.dev' => array(
 		// The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
 		'server' => 'localhost',
@@ -54,5 +68,5 @@ return array(
 		// The database password to connect with.
 		'password' => 'sUbW+no7]+Hh',
 	),
-
+    
 );
