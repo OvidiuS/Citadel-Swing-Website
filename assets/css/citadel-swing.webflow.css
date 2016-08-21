@@ -861,10 +861,7 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
     margin-top: 16px;
     margin-bottom: 3px;
   }
-  .container {
-    padding-right: 0%;
-    padding-left: 0%;
-  }
+
   .plan-row {
     margin-top: -34px;
   }
