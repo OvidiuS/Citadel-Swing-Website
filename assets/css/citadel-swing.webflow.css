@@ -890,6 +890,9 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   .securePayment {
     font-size: 10px;
   }
+  h2 {
+    font-size: 3em;
+  }
 /*  .securityLinksWrapper, .securityLinksWrapper a {
     font-size: 10px
   }*/
