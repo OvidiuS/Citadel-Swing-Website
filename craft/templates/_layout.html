@@ -60,9 +60,9 @@
 <body>
 	<div data-collapse="medium" data-animation="default" data-duration="400" data-contain="1" data-doc-height="1" data-ix="hide-scroll-nav" class="w-nav mobilenav">
 		<div class="w-container">
-			<a href="/" class="w-nav-brand brand floating"><img width="175" src="/assets/images/logo-small-white2.png" class="floating-nav-logo">
+			<a href="/" class="w-nav-brand brand floating"><img width="175" src="/assets/images/logo-small-white2.png" class="floating-nav-logo" alt="Citadel Swing logo">
 			</a>
-			<nav role="navigation" class="w-nav-menu nav-menu">
+			<nav class="w-nav-menu nav-menu">
 				{% if entry is defined and  entry.section.handle == "homepage" %}
 					<a href="#home" class="w-nav-link main-menu-item float">Home</a>
 				{% else %}
@@ -92,9 +92,9 @@
 	<div class="w-section hero">
 		<div data-collapse="medium" data-animation="default" data-duration="400" data-contain="1" data-doc-height="1" data-ix="scroll-nav" class="w-nav navbar">
 			<div class="w-container">
-				<a class="brand w-nav-brand" href="/"><img src="/assets/images/logo-small-white2.png" width="254">
+				<a class="brand w-nav-brand" href="/"><img src="/assets/images/logo-small-white2.png" width="254" alt="Citadel Swing logo">
 				</a>
-				<nav class="nav-menu w-nav-menu" role="navigation">
+				<nav class="nav-menu w-nav-menu">
 					{% if entry is defined and  entry.section.handle == "homepage" %}
 						<a class="main-menu-item w-nav-link" href="#home">Home</a>
 					{% else %}
@@ -136,7 +136,7 @@
 		<!-- /.big-logo-bg -->
 	</div>
 	<!-- /.hero -->
-<main role="main">	
+<main>	
 {% block content %}
 
 	<p>If you see me, something's wrong. Now go fix it pls.</p>
