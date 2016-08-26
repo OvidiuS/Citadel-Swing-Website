@@ -28,3 +28,7 @@
 *.tmproject
 Thumbs.db
 /logs/*
+
+
+# NODE MODULES
+node_modules/
