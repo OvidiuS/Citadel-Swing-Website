@@ -1,3 +1,8 @@
+@import 'node_modules/breakpoint-sass/stylesheets/breakpoint';
+@import 'node_modules/breakpoint-slicer/stylesheets/breakpoint-slicer';
+
+$slicer-breakpoints: 0 400px 600px 991px 1050px;
+
 $primary-color: #d90246;
 $text-color: #333;
 $background-color: #fff;
@@ -15,6 +20,11 @@ $big-heading-font: Oswald, sans-serif;
 $subheading-font: Montserrat, sans-serif;
 
 body {
+  @include to(3) {
+    // Code from this block will only be applied to .element
+    // when browser window width is between 400px and 600px.
+    background-color: $primary-color;
+  }
   line-height: 1.5em;
 }
 
