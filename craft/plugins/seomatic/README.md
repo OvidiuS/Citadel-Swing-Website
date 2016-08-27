@@ -52,8 +52,61 @@ Some things to do, and ideas for potential features:
 * [bug] Enforce *required fields on the various settings pages in the Admin CP by doing proper validation
 * [bug] The `foundingDate` fields probably should be dateTimeField types on the Settings pages
 * [feature] Provide SiteMap functionality.  Yes, it's SEO-related, but seems like it might be better to keep SEOmatic focused (?)
+* [feature] Allow people to choose individual fields to pull from inside of Matrix and Neo blocks
 
 ## Changelog
+
+### 1.1.32 -- 2016.08.25
+
+* [Improved] The SEOmetrics tab in the AdminCP now doesn't start analyzing until you click Analyze
+* [Improved] Improved SEOmetric's sitemap.xml detection
+* [Improved] Updated DOCS.md to reflect the change from `seomaticProduct` to `seomaticMainEntityOfPage`
+* [Improved] Products now have commas stripped from their price, and use a `.` as a decimal point
+* [Fixed] Fixed an issue that caused SEOmatic to throw an error in a tokenized entry draft
+* [Fixed] Fixed an issue with stale SEOmatic FieldTypes that were added to a section, but then later removed
+* [Improved] Updated the README.md
+
+### 1.1.31 -- 2016.08.15
+
+* [Added] SEOmetrics now has its own tab, and can evaluate any arbitrary URL you paste into it
+* [Added] SEOmatic can now pull images from FocusPoint FieldTypes
+* [Added] Added 'Person' as a type for the Main Entity of Page
+* [Added] Added Vimeo Handle to Social Media settings
+* [Added] Added a 'globalMetaOverride' setting to config.php
+* [Added] SEOmetrics checks for HTML validity via the WC3 Validator
+* [Added] Added a Score % summary for each SEOmetrics category
+* [Added] SEOmetrics now includes Google Pagespeed Insights scores and Google Mobile Usability
+* [Added] SEOmetrics checks for SSL encryption via https
+* [Improved] Better extraction of 'top keywords on page' in SEOmetrics
+* [Improved] SEOmetrics now looks for link rel='publisher'
+* [Improved] Refined SEOmetrics a bit, and added more 'Learn More' links
+* [Fixed] The mainEntityOfPage is no longer improperly cached if being called by getJsonLd()
+* [Improved] Updated the README.md
+
+### 1.1.30 -- 2016.08.05
+
+* [Added] Added 'Learn More' link for JSON-LD structured data in SEOmetrics
+* [Added] Breadcrumbs get added to WebPage objects, too
+* [Improved] SEOmatic now remembers the selected locale in its tabbed settings
+* [Improved] Fixed a regression in SEOmetric's keyword in URL checking
+* [Improved] Increased HTML SimpleDom's MAX_FILE_SIZE to allow for parsing larger pages (especially with devMode on)
+* [Improved] SEOmetrics handles missing robots.txt files more elegantly
+* [Improved] SEOmetrics no longer depends on there being an meta description tag
+* [Fixed] Fixed an error when using the Share arrow on a draft from Live Preview
+* [Fixed] Fixed an issue accessing getJsonLd from an entry that has no URLs or has empty SEOmatic values
+* [Fixed] mainEntityOfPage now works for Template Metas
+* [Improved] Updated the README.md
+
+### 1.1.29 -- 2016.07.31
+
+* [Added] Added the ability to extract seoTitle, seoDescription, and seoKeywords from Neo fields
+* [Added] Added the ability to extract seoTitle, seoDescription, and seoKeywords from Preparse fields
+* [Added] Added detection of Twitter Card meta tags, OpenGraph meta tags, and JSON-LD structured data in SEOmetrics
+* [Added] Added detection robots.txt and sitemaps in SEOmetrics
+* [Improved] Breadcrumbs are now generated for every element that matches a URI in the current URL segments
+* [Improved] seoTitles, seoDescriptions, and seoKeywords are now truncated on save in SEOmatic Meta FieldTypes when they pull from other fields
+* [Improved] Improved the SEOmetrics preview CSS a bit
+* [Improved] Updated the README.md
 
 ### 1.1.28 -- 2016.07.27
 
