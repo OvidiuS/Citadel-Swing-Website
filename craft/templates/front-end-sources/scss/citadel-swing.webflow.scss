@@ -1,0 +1,1104 @@
+@import 'node_modules/breakpoint-sass/stylesheets/breakpoint';
+@import 'node_modules/breakpoint-slicer/stylesheets/breakpoint-slicer';
+
+$slicer-breakpoints: 0 400px 600px 991px 1050px;
+
+// main colors definitions
+$color-red-ribbon: #d90246;
+$color-mine-shaft: #333;
+$color-white: #fff;
+$color-alto: #d0d0d0;
+
+// secondary color definitions
+$color-sweet-pink: #ffa3a3;
+$color-green: #0f0;
+$color-yellow: #ff0;
+$color-black: #000;
+$color-sundown: #ffb8b8;
+$color-razzmatazz: #db1464;
+$color-contessa: #cf6f6f;
+$color-vivid-tangerine: #ff8b8b;
+$color-varden: #fff7e2;
+$color-cosmos: #ffd1d1;
+$color-dove-gray: #6f6f6f;
+$color-cornflower-lilac: #ffa6a6;
+$color-really-transparent-black: rgba(0, 0, 0, .4);
+$color-mercury: #e6e6e6;
+$color-dolly: #ffff86;
+$color-shiraz: #b9053e;
+$color-snow-flurry: #e7ffd1;
+
+// semantic color assignments
+$primary-color: $color-red-ribbon;
+$text-color: $color-mine-shaft;
+$background-color: $color-white;
+$background-color-alternate: $color-mercury;
+$header-fancy-shadow: 0 3px 0 #bdb8b8, -5px 9px 0 hsla(0, 0%, 100%, .35);
+
+$header-light-text: $color-sweet-pink;
+$adam-rita-color: $color-green;
+$maxime-torri-color: $color-yellow;
+$blackest-color: $color-black;
+
+$header-hover-color: rgba(179, 179, 179, .24);
+
+$big-heading-font: Oswald, sans-serif;
+$subheading-font: Montserrat, sans-serif;
+
+body {
+  @include to(3) {
+    // Code from this block will only be applied to .element
+    // when browser window width is between 400px and 600px.
+    background-color: $primary-color;
+  }
+  line-height: 1.5em;
+}
+
+h2 {
+  font-family: $big-heading-font;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 36px;
+  margin-bottom: 65px;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 30px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.hero {
+  background-color: $primary-color;
+  background-image: none;
+  background-size: auto;
+  position: relative;
+}
+
+.big-logo-bg {
+  background-color: $primary-color;
+  background-image: url('../images/logo-big-red-bg-fade.jpg');
+  background-position: 100% top;
+  background-repeat: no-repeat;
+  border-bottom: 13px dashed $background-color;
+  height: 100%;
+  padding-bottom: 99px;
+  padding-top: 220px;
+}
+
+.navbar {
+  background-color: transparent;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 32px;
+
+  &.mobilenav {
+    // background-color: rgba(0, 0, 0, .45);
+    border-bottom: 1px solid $background-color;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    position: fixed;
+    top: 0;
+  }
+}
+
+.hero-heading {
+  color: $background-color;
+  font-size: 95px;
+  line-height: .9em;
+  padding-left: 6%;
+  text-shadow: $header-fancy-shadow;
+  text-transform: uppercase;
+}
+
+.hero-subheading {
+  color: $text-color;
+  font-family: $big-heading-font;
+  font-size: 39px;
+  font-weight: 200;
+  margin-bottom: 62px;
+  margin-top: 29px;
+  padding-left: 7%;
+  text-transform: uppercase;
+}
+
+.main-menu-item {
+  color: $background-color;
+  font-family: $big-heading-font;
+  font-size: 18px;
+  padding: 30px 15px;
+  text-align: center;
+  text-transform: uppercase;
+
+  &.activeMainMenuItem {
+    color: $color-white;
+    font-weight: bold;
+  }
+
+  &.w--current {
+    color: $background-color;
+  }
+
+  &.float {
+    padding-bottom: 19px;
+    padding-top: 19px;
+
+    &:hover {
+      color: $color-sundown;
+    }
+
+    &.w--current {
+      border-bottom: 3px none $background-color;
+      border-top: 3px solid $background-color;
+    }
+  }
+
+  &.w--open {
+    background-color: $background-color;
+    border-bottom: 1px solid $primary-color;
+    box-shadow: 0 5px 6px 0 $background-color;
+    color: $primary-color;
+  }
+
+  &.subitem {
+    background-color: $background-color;
+    border-top: 1px solid $primary-color;
+    color: $primary-color;
+
+    &:hover {
+      color: $blackest-color;
+    }
+  }
+}
+
+.nav-menu {
+  .w-icon-dropdown-toggle {
+    //  right: -3px;
+    margin-right: 20px;
+  }
+
+  .w-dropdown-toggle {
+    padding-right: 30px;
+    width: 104px;
+  }
+}
+
+.menu-dropdown-list {
+  &.w--open {
+    background-color: $background-color;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .54);
+  }
+}
+
+.summary-heading {
+  border-bottom: 1px dashed $primary-color;
+  font-size: 22px;
+  padding-bottom: 5px;
+}
+
+.sumary-desc {
+  font-family: $subheading-font;
+}
+
+.invitee-wrapper {
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0 0 35px 7%;
+
+  &:hover {
+    background-color: $header-hover-color;
+  }
+}
+
+.selectedForBio {
+  &:hover {
+    background-color: $background-color;
+  }
+
+  .with {
+    color: $background-color;
+  }
+
+  background-color: $color-white;
+
+  .invitee-title {
+    color: $primary-color;
+  }
+}
+
+.invitee-image {
+  border-radius: 50%;
+  box-shadow: -4px 4px 1px 0 $background-color;
+  float: left;
+  width: 40%;
+}
+
+.section {
+  border-bottom-color: $primary-color;
+  border-bottom-width: 5px;
+  border-style: none;
+  padding-bottom: 130px;
+  padding-top: 120px;
+
+  &.red {
+    background-color: $primary-color;
+    border-bottom: 11px none $background-color;
+    border-top: 8px dashed $background-color;
+    padding-top: 106px;
+  }
+
+  &.join-us {
+    background: linear-gradient(to right, $background-color 44%, hsla(0, 0%, 100%, 0) 100%), url('../images/bastion-timisoara.jpg');;
+    background-position: 0 0, 100% 50%;
+    background-repeat: repeat, no-repeat;
+  }
+}
+
+.button {
+  background-color: $color-razzmatazz;
+  border: 1px solid $color-sundown;
+  border-radius: 2px;
+  box-shadow: 0 0 6px 0 $color-contessa;
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  padding: 14px 20px;
+
+  &:hover {
+    background-color: $primary-color;
+    box-shadow: 1px 0 6px 0 $primary-color;
+  }
+}
+
+.invitee-title {
+  color: $background-color;
+  float: right;
+  font-family: $big-heading-font;
+  font-size: 34px;
+  line-height: .7em;
+  margin-top: 22px;
+  text-shadow: 0 1px 0 $blackest-color;
+  width: 58%;
+}
+
+.other-fun-surprises {
+  background-image: url('../images/plus-button.png');
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  background-size: 116px;
+  color: $primary-color;
+  display: inline-block;
+  float: right;
+  font-size: 54px;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-bottom: 28px;
+  padding-left: 94px;
+  padding-top: 61px;
+  text-align: right;
+  text-shadow: 0 3px 0 $background-color, 0 -4px 0 $background-color, -3px 0 0 $background-color;
+}
+
+.summary-wrapper {
+  color: $text-color;
+  display: block;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-color;
+
+    .summary-heading {
+      border-bottom: 1px dashed $text-color;
+
+      span {
+        color: $text-color;
+      }
+    }
+  }
+}
+
+.heading-underline {
+  border-bottom: 3px solid $primary-color;
+}
+
+.origin {
+  color: $color-vivid-tangerine;
+  font-size: 14px;
+  text-shadow: none;
+}
+
+.h3-white {
+  font-family: $big-heading-font;
+  padding-left: 33px;
+
+  &.with {
+    color: $header-light-text;
+  }
+}
+
+.entry-h2 {
+  background-color: $primary-color;
+  color: $background-color;
+  line-height: 1em;
+  margin-bottom: 16px;
+}
+
+.early-bird-date {
+  color: $background-color;
+}
+
+.feature-heading-big {
+  color: $primary-color;
+  display: block;
+  font-size: 30px;
+  text-shadow: 0 2px 0 rgba(182, 35, 35, 0.25);
+}
+
+.white-hack {
+  background-color: $background-color;
+}
+
+.pricing-column-2 {
+  background-image: url('../images/love.png');
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  background-size: 128px;
+  padding-left: 85px;
+}
+
+.pricing-column-1 {
+  background-image: url('../images/price.png');
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  background-size: 128px;
+  padding-left: 107px;
+}
+
+.join-us-heading {
+  display: inline-block;
+  line-height: 1em;
+  padding-bottom: 15px;
+}
+
+.join-us-subheading {
+  font-weight: 400;
+  margin-bottom: 36px;
+  margin-top: 5px;
+}
+
+.brand {
+  &.floating {
+    padding-bottom: 3px;
+    padding-top: 3px;
+  }
+}
+
+.mobilenav {
+  background-color: $primary-color;
+  box-shadow: 0 0 11px 0 $color-really-transparent-black;
+  display: block;
+  left: 0;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+html.w-mod-js *[data-ix="hide-scroll-nav"] {
+  -ms-transform: translate(0, -88px);
+  -webkit-transform: translate(0, -88px);
+  transform: translate(0, -88px);
+}
+
+.buyTicketsWrapper {
+  clear: both;
+  margin: 60px 2% 0;
+  min-height: 210px;
+  text-align: center;
+}
+
+.buyTicketsLink {
+  background-color: $color-varden;
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 0 0 3px;
+  color: $primary-color;
+  cursor: pointer;
+  display: inline-block;
+  font-style: normal;
+  font-weight: 700;
+  margin-top: 10px;
+  overflow: hidden;
+  padding: 0 70px 0 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: all 200ms ease-in-out 0s;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $background-color;
+    margin-top: 0;
+  }
+}
+
+.ticketButtonText {
+  background-color: $background-color;
+  border-right: 2px dotted $primary-color;
+  display: block;
+  padding: 60px 39px 40px 58px;
+  transition: all 200ms ease-in-out 0s;
+}
+
+.buyTicketsLink:hover .ticketButtonText {
+  background-color: $color-varden;
+  padding: 70px 49px 50px 68px;
+}
+
+.mainTicketText {
+  display: block;
+  text-shadow: 0 3px 0 $color-cosmos;
+  text-transform: uppercase;
+}
+
+.securePayment {
+  background: url('../images/payment-secure-icon.png') no-repeat center left;
+  background-size: 20px;
+  color: $color-dove-gray;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 9px 0 10px 26px;
+}
+
+.ticketLeft {
+  background: url('../images/ticket-left.png') no-repeat center left;
+  height: 88px;
+  left: 0;
+  margin-top: -44px;
+  position: absolute;
+  top: 50%;
+  width: 29px;
+}
+
+.ticketRight {
+  background: url('../images/ticket-right.png') no-repeat center right;
+  height: 88px;
+  margin-top: -44px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 32px;
+}
+
+.securityLinksWrapper {
+  color: $color-cornflower-lilac;
+  font-size: 12px;
+
+  a {
+    color: $color-cornflower-lilac;
+    font-size: 12px;
+  }
+}
+
+.ticketIframeWrapper {
+  background: url('../images/gears.gif') no-repeat center 70px;
+  height: 880px;
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 50%;
+
+  iframe {
+    border: 0;
+    height: 100%;
+    position: absolute;
+    width: 50%;
+  }
+}
+
+.smallHeroheading {
+  font-size: 60px;
+}
+
+.ticketInstructions {
+  padding: 20px 2% 0;
+}
+
+// home pro bios
+
+.pro-bio-home {
+  background-color: $color-white;
+  display: none;
+  padding: 20px 5%;
+}
+
+.proBioMoreLink {
+  color: $primary-color;
+  display: block;
+  font-size: 18px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  margin-top: 20px;
+}
+
+.mobileBio {
+  margin-top: 0;
+  padding-top: 0;
+
+  h4 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+// Schedule
+
+.scheduleTable {
+  margin-bottom: 75px;
+  width: 100%;
+
+  thead {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  tr {
+    border-left: 1px solid $background-color-alternate;
+    border-right: 1px solid $background-color-alternate;
+  }
+
+  .alternateTableRow {
+    background-color: $color-mercury;
+  }
+
+  td {
+    border-bottom: 1px solid $background-color;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .timeColumn {
+    min-width: 100px;
+    width: 15%;
+  }
+
+  .scheduleMoreInfo {
+    color: $background-color;
+    padding: 20px;
+    text-align: left;
+
+    a {
+      color: $color-snow-flurry;
+    }
+  }
+
+  .detailsRow {
+    background-color: $color-shiraz;
+    display: none;
+  }
+
+  .rowDetailsVisible {
+    td {
+      border-bottom: 0;
+    }
+  }
+
+  .cellDetailsVisible {
+    background-color: $primary-color;
+    color: $background-color;
+  }
+
+  .short {
+    height: 60px;
+  }
+
+  .normal {
+    height: 80px;
+  }
+
+  .long {
+    height: 140px;
+  }
+
+  .scheduleHeaderRow {
+    background-color: $text-color;
+    color: $background-color;
+
+  }
+}
+
+.shceduleMoreLink {
+  background: url('../images/more-less.png') no-repeat top left;
+  color: $primary-color;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 3px;
+  padding: 6px 0;
+  text-indent: -9999em;
+  width: 32px;
+
+  &.active {
+    background-position: bottom left;
+    color: $background-color;
+  }
+}
+
+.cellDetailsVisible {
+  .scheduleLvl23,
+  .scheduleLvl4 {
+    background-color: transparent;
+    color: $background-color;
+  }
+}
+
+.tableHeaderBorderRight {
+  border-right: 1px solid $color-white;
+}
+
+.tableHeaderBorderRightDashed {
+  border-right: 1px dashed $color-white;
+}
+
+.timeColumn {
+  border-right: 1px dashed $background-color-alternate;
+}
+
+.scheduleCellBorderRight {
+  border-right: 1px solid $background-color-alternate;
+}
+
+.detailsrowBorderRightDashed {
+  border-right: 1px dashed $color-white;
+}
+
+.cellAdamRita {
+  background-color: $adam-rita-color;
+}
+
+.cellMaximeTorri {
+  background-color: $maxime-torri-color;
+}
+
+// Footer
+
+.footerSection {
+  background-color: $primary-color;
+  border-bottom: 3px solid $color-mercury;
+  color: $background-color;
+  padding: 25px 20px 20px;
+  text-align: center;
+
+  a {
+    color: $color-varden;
+  }
+}
+
+// 404
+
+.textContainer404 {
+  float: right;
+  padding-top: 20px;
+  text-align: center;
+  width: 60%;
+}
+
+.big404Image {
+  float: left;
+  width: 40%;
+}
+
+.heading404 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.subheading404 {
+  font-family: Arial, sans-serif;
+  font-size: 4em;
+  padding-left: 0;
+}
+
+.copy404 {
+
+  color: $background-color;
+}
+
+// THE PLAN 
+
+.alternateSection {
+  background-color: $background-color-alternate;
+}
+
+.center {
+  text-align: center;
+}
+
+.headerInenrButton {
+  background-color: transparent;
+  margin-left: 6%;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: $color-razzmatazz;
+  }
+}
+
+@media (max-width: 991px) {
+  .main-menu-item {
+    color: $primary-color;
+    text-align: center;
+
+    &.w--current,
+    &.float {
+      .w--current {
+        color: $color-black;
+      }
+    }
+  }
+
+  .w-nav-menu {
+    border: 1px solid $primary-color;
+  }
+
+  .w-nav-overlay {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 728px;
+  }
+
+  .w--nav-menu-open {
+    right: 0;
+  }
+
+  .main-menu-icon {
+    font-size: 42px;
+  }
+
+  .main-menu-mobile-button {
+    background-color: $background-color;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    font-size: 40px;
+    line-height: 24px;
+
+    &.w--open {
+      background-color: $background-color;
+      color: $primary-color;
+    }
+  }
+
+  .h3-white {
+    font-size: 18px;
+  }
+
+  .entry-h2 {
+    font-size: 48px;
+  }
+
+  .nav-menu {
+    background-color: $background-color;
+
+    .menu-dropdown-list {
+      a {
+        background-color: $color-mercury;
+        border: 0;
+      }
+
+      &.w--open {
+        box-shadow: none;
+      }
+    }
+
+    .w-dropdown-toggle {
+      .w--open {
+        border-bottom: 0;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .brand {
+    display: block;
+
+    &.floating {
+      display: none;
+    }
+  }
+
+  .mobilenav {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .ticketIframeWrapper {
+    margin: auto;
+    padding-top: 50px;
+    width: 100%;
+
+    iframe {
+      border: 0;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  .textContainer404 {
+    float: none;
+    padding-top: 20px;
+    text-align: center;
+    width: auto;
+  }
+
+  .big404Image {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    background-color: $primary-color;
+  }
+
+  .big-logo-bg {
+    background-image: url('../images/logo-big-red-bg-fade.jpg');
+    background-position: -150px 0;
+    padding-top: 138px;
+  }
+
+  .navbar {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  .w--nav-menu-open {
+    right: 2%;
+  }
+
+  .invitee-wrapper {
+    padding-left: 8%;
+  }
+
+  .section {
+    padding-bottom: 56px;
+    padding-top: 56px
+;
+    &.join-us .w-container {
+      padding: 0 3%;
+    }
+  }
+  .other-fun-surprises {
+    line-height: .6em;
+    margin-top: 30px;
+    padding-bottom: 51px;
+    padding-left: 117px;
+    padding-top: 51px;
+    text-align: left;
+  }
+
+  .heading-underline {
+    line-height: 1em;
+  }
+
+  .feature-heading-big {
+    display: inline;
+  }
+
+  .container {
+    padding-right: 2%;
+    padding-left: 2%;
+  }
+
+  .ticketInstructions {
+    padding: 20px 2% 0;
+  }
+
+  .footerSection {
+    padding: 15px 10px 10px;
+  }
+}
+
+@media (max-width: 479px) {
+  .big-logo-bg {
+    padding-bottom: 66px;
+  }
+
+  .hero-heading {
+    font-size: 65px;
+  }
+
+  .hero-subheading {
+    font-size: 29px;
+    margin-bottom: 5px;
+  }
+
+  .summary-column {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .invitee-wrapper {
+    padding-left: 1%;
+  }
+
+  .section {
+    &.red {
+      padding-bottom: 50px;
+      padding-top: 50px;
+    }
+
+    &.join-us {
+      background-image: -webkit-linear-gradient(0deg, $background-color 24%, hsla(0, 0%, 100%, 0.62)), url('../images/bastion-timisoara.jpg');
+      background-image: linear-gradient(90deg, $background-color 24%, hsla(0, 0%, 100%, 0.62)), url('../images/bastion-timisoara.jpg');
+      background-position: 0 0, 100% 50%;
+      background-repeat: repeat, no-repeat;
+    }
+  }
+
+  .button {
+    display: block;
+    font-size: 21px;
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .invitee-title {
+    font-size: 25px;
+    margin-bottom: 4px;
+    margin-top: 13px;
+  }
+
+  .other-fun-surprises {
+    background-position: 54px 50%;
+    background-size: 66px;
+    font-size: 44px;
+    padding-bottom: 11px;
+    padding-right: 11px;
+    padding-top: 11px;
+  }
+
+  .heading-underline {
+    display: block;
+    padding-bottom: 9px;
+    text-align: center;
+  }
+
+  .h3-white {
+    line-height: 1.5em;
+    margin-top: 1px;
+    padding-left: 26px;
+  }
+
+  .entry-h2 {
+    font-size: 36px;
+    margin-bottom: 11px;
+  }
+
+  .early-bird-date {
+    display: inline-block;
+  }
+
+  .pricing-column-2 {
+    background-position: 16px 57%;
+    background-size: 98px;
+  }
+
+  .pricing-column-1 {
+    background-position: 5px 55%;
+    background-size: 108px;
+    padding-left: 100px;
+  }
+
+  .join-us-heading {
+    display: block;
+    text-align: center;
+  }
+
+  .join-us-subheading {
+    text-align: center;
+  }
+
+  .brand {
+    margin-bottom: 3px;
+    margin-top: 16px;
+    width: 200px;
+  }
+
+  .plan-row {
+    margin-top: -34px;
+  }
+
+  .buyTicketsWrapper {
+    margin-top: 20px;
+    min-height: 0;
+  }
+
+  .mainTicketText {
+    font-size: 14px;
+    text-shadow: 0 2px 1px #b7bec5;
+  }
+
+  .buyTicketsLink {
+    padding: 0;
+  }
+
+  .ticketButtonText {
+    padding: 31px 0 16px 0;
+    margin: 0;
+    border-left: 2px dotted $primary-color;
+  }
+
+  .ticketLeft, .ticketRight {
+    background-size: 20px;
+  }
+
+  .securePayment {
+    font-size: 10px;
+  }
+
+  h2 {
+    font-size: 3em;
+  }
+
+  .smallHeroheading {
+    font-size: 46px;
+  }
+
+  .buyTicketsLink:hover .ticketButtonText {
+    padding: 60px 39px 40px 58px;
+  }
+
+  .copy404 {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  .scheduleTable {
+    h3 {
+      font-size: 18px;
+      line-height: 1em;
+    }
+
+    .shceduleMoreLink {
+      display: block;
+      margin: 5px auto;
+    }
+  }
+
+  .detailsrowBorderRightDashed {
+    display: none;
+  }
+
+  .scheduleMoreInfo {
+    column-span: 3;
+  }
+}
