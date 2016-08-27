@@ -366,13 +366,29 @@ In addition, you can do:
 
 	{{ newsJsonLD | renderJSONLD }}
 
-## SEOmetrics during Live Preview
+## SEOmetrics Content Analysis
+
+The SEOmetrics feature in SEOmatic allows you to analyze your pages to measure the effectiveness of the SEO on them.  It can be accessed in two different places, either analyzing arbitrary URLs via the Admin CP, or analyzing specific Entries/Sections via Live Preview.
+
+### SEOmetrics in the Admin CP
+
+SEOmetrics Content Analysis will run a variety of tests on your web page, and offer you analysis with helpful tips on how to correct any problems it finds.  For each test, there is a `Learn More` link that will offer details on the thing being tested.
+
+You can enter any arbitrary URL in the **URL to Analyze** field, even URLs to external websites, should you wish to.
+
+You can enter **Focus Keyworks**, comma separated, for an additional analysis of how well optimized your page is for those specific SEO keywords.
+
+### SEOmetrics during Live Preview
 
 ![Screenshot](resources/screenshots/seomatic05.png)
 
-During Live Preview, a small SEOmatic icon is displayed in the lower-left corner of the Live Preview screen.  If you click on it, it will run a variety of tests on your web page, and offer you analysis with helpful tips on how to correct the problem.
+During Live Preview, a small SEOmatic icon is displayed in the lower-left corner of the Live Preview screen.  If you click on it, it will run a variety of tests on your web page, and offer you analysis with helpful tips on how to correct any problems it finds.
 
 You can enter **Focus Keyworks**, comma separated, for an additional analysis of how well optimized your page is for those specific SEO keywords.
+
+### Video SEOmetrics in Action:
+
+[![Video SEOmetrics in Action](https://img.youtube.com/vi/y7swBbGwEJE/0.jpg)](https://www.youtube.com/watch?v=y7swBbGwEJE)
 
 You can disable this feature by setting `displaySeoMetrics` to `false` in the `config.php`, should you wish to not have it displayed.
 
@@ -384,9 +400,9 @@ SEOmetrics during Live Preview only works if System Status is set to "on".
 
 If an SEOmatic FieldType is attached to a Craft Commerce Product, in addition to rendering the page SEO Meta, it will also generate [Product JSON-LD microdata](https://developers.google.com/structured-data/rich-snippets/products) that describes the product.
 
-It does this by pulling values from the `seomaticMeta` settings from the SEOmatic FieldType, as well as by pulling data from the Craft Commerce Product.  If you have an SEOmatic FieldType attached to a Craft Commerce Product, a new `seomaticProduct` array is injected into your page template:
+It does this by pulling values from the `seomaticMeta` settings from the SEOmatic FieldType, as well as by pulling data from the Craft Commerce Product.  If you have an SEOmatic FieldType attached to a Craft Commerce Product,  `seomaticMainEntityOfPage` array is injected into your page template:
 
-    {% set seomaticProduct = [
+    {% set seomaticMainEntityOfPage = [
         {
             type: "Product",
             name: "Romper for a Red Eye",
@@ -408,11 +424,23 @@ It does this by pulling values from the `seomaticMeta` settings from the SEOmati
 
 Since this is just a Twig array, you can alter it as you see fit, and whatever changes you make will be reflected in the JSON-LD that SEOmatic renders via the `{% hook 'seomaticRender' %}`  Because of the way that Twig handles arrays, you **must** include every field in the array when doing a `set` or `merge`, otherwise the fields you exclude will not exist.
 
-Or if you want to set just one variable in the array, you can use the Twig function [merge](http://twig.sensiolabs.org/doc/filters/merge.html):
+Or if you want to set just one variable in the array, you can use the Twig function [merge](http://twig.sensiolabs.org/doc/filters/merge.html).  Because this is an _array_ of Products, you need to do something like this to add to each Product in the array:
 
-    {% set seomaticProduct = seomaticProduct | merge({'brand': entry.brandInfo }) %}
+    {% if seomaticMainEntityOfPage is defined %}
+        {% set productBrand = {
+            'type': 'thing',
+            'name': product.title
+            }
+        %}
+        {% set tempMainEntityOfPage = [] %}
+        {% for productJsonLd in seomaticMainEntityOfPage %}
+            {% set productJsonLd = productJsonLd | merge({"brand": productBrand }) %}
+            {% set tempMainEntityOfPage = tempMainEntityOfPage |merge([productJsonLd])  %}
+        {% endfor %}
+        {% set seomaticMainEntityOfPage = tempMainEntityOfPage %}
+    {% endif %}
 
-You can change these `seomaticProduct` variables in your templates that `extends` your main `layout.twig` template, and due to the Twig rendering order, when `{% hook 'seomaticRender' %}` is called, they'll be populated in your rendered SEO Meta tags.
+You can change these `seomaticMainEntityOfPage` variables in your templates that `extends` your main `layout.twig` template, and due to the Twig rendering order, when `{% hook 'seomaticRender' %}` is called, they'll be populated in your rendered SEO Meta tags.
 
 See the section **Dynamic Twig SEO Meta** for more information on how to manipulate SEOmatic variables via Twig.
 
@@ -445,7 +473,9 @@ Note that `Event` schema types require `startDate` and `location` to be set, whi
 
 SEOmatic will automatically generate [Breadcrumbs](https://developers.google.com/search/docs/data-types/breadcrumbs) JSON-LD microdata that is used by Google to display breadcrumbs on the SERP rich cards.
 
-By default, SEOmatic will generate breadcrumbs automatically for `Home` (the name is configurable via `breadcrumbsHomeName` in `config.json`), and for the current `entry`, `product`, or `category` the template is displaying.
+By default, SEOmatic will generate breadcrumbs automatically for `Home` (the name is configurable via `breadcrumbsHomeName` in `config.json`), and every element (category, entry, product, whatever) that has a URI matches the current URL segments.
+
+### Changing Breadcrumbs
 
 If you want to do your own custom breadcrumbs, you can set them yourself in the `breadcrumbs` array in the `seomaticMeta` variable like this:
 
@@ -457,6 +487,10 @@ If you want to do your own custom breadcrumbs, you can set them yourself in the 
 
 	{% set seomaticMeta = seomaticMeta | merge({'breadcrumbs': myBreadcrumbs }) %}
 
+    {% if seomaticMainEntityOfPage is defined and seomaticMainEntityOfPage.type == "WebPage" %}
+        {% set seomaticMainEntityOfPage = seomaticMainEntityOfPage | merge({'breadcrumbs': myBreadcrumbs }) %}
+    {% endif %}
+
 Since this is just a Twig array, you can alter it as you see fit, and whatever changes you make will be reflected in the JSON-LD that SEOmatic renders via the `{% hook 'seomaticRender' %}`  Because of the way that Twig handles arrays, you **must** include every field in the array when doing a `set` or `merge`, otherwise the fields you exclude will not exist.
 
 You can change these `breadcrumbs` variables in your templates that `extends` your main `layout.twig` template, and due to the Twig rendering order, when `{% hook 'seomaticRender' %}` is called, they'll be populated in your rendered SEO Meta tags.
@@ -464,6 +498,16 @@ You can change these `breadcrumbs` variables in your templates that `extends` yo
 See the section **Dynamic Twig SEO Meta** for more information on how to manipulate SEOmatic variables via Twig.
 
 SEOmatic also automatically strips HTML/PHP tags from the variables, and translates HTML entities to ensure that they are properly encoded.
+
+### Displaying Breadcrumbs on the Frontend
+
+Should you wish to display the breadcrumbs in your front-end templates so that they are visible to the user, you can do that with code like this:
+
+    <ul class="crumbs">
+        {% for crumbName, crumbUrl in seomaticMeta.breadcrumbs %}
+            <li class="crumbs"><a href="{{ crumbUrl }}">{{ crumbName }}</a></li>
+        {% endfor %}
+    </ul>
 
 ## Dynamic Twig SEO Meta
 
@@ -601,6 +645,18 @@ If you're using the `article` OpenGraph type, you'll see an additional `article`
 Or if you want to set just one variable in the array, you can use the Twig function [merge](http://twig.sensiolabs.org/doc/filters/merge.html):
 
     {% set seomaticMeta = seomaticMeta | merge({'seoDescription': entry.summary }) %}
+
+Here's an example of how to change just the `image` in Twitter:
+
+	{% set twitter = seomaticMeta.twitter %}
+	{% set twitter = twitter | merge({'image': someiImage}) %}
+	{% set seomaticMeta = seomaticMeta | merge({'twitter': twitter}) %}
+
+...and here's an example of how to change just the `image` in OpenGraph:
+
+	{% set og = seomaticMeta.og %}
+	{% set og = og | merge({'image': someiImage}) %}
+	{% set seomaticMeta = seomaticMeta | merge({'og': og}) %}
 
 You can change these `seomaticMeta` variables in your templates that `extends` your main `layout.twig` template, and due to the Twig rendering order, when `{% hook 'seomaticRender' %}` is called, they'll be populated in your rendered SEO Meta tags.
 

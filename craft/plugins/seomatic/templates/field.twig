@@ -2,6 +2,7 @@
 
 {% set locale = craft.isLocalized() ? (element ? element.locale : craft.locale) %}
 
+{% set someUrl = getFullyQualifiedUrl(element.url) | default(siteUrl) %}
 {% include "seomatic/_preview_display_modal" with {'previewMetaPath': '', 'locale': locale } %}
 {% include "seomatic/_preview_tags_modal" with {'previewMetaPath': '', 'elementId': elementId,  'locale': locale } %}
 
@@ -38,6 +39,7 @@
                     options: {
                         "CreativeWork": "CreativeWork",
                         "Event": "Event",
+                        "Person": "Person",
                         "Product": "Product",
                     },
                     name: name ~ "[seoMainEntityCategory]",

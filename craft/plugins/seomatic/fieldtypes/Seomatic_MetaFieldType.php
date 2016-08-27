@@ -120,9 +120,17 @@ class Seomatic_MetaFieldType extends BaseFieldType
                 case "PlainText":
                 case "RichText":
                 case "RedactorI":
+                case "PreparseField_Preparse":
                     $fieldList[$field->handle] = $field->name;
                     $fieldData[$field->handle] = craft()->seomatic->truncateStringOnWord(
                             strip_tags($this->element->content[$field->handle]),
+                            200);
+                    break;
+
+                case "Neo":
+                    $fieldList[$field->handle] = $field->name;
+                    $fieldData[$field->handle] = craft()->seomatic->truncateStringOnWord(
+                            craft()->seomatic->extractTextFromNeo($this->element[$field->handle]),
                             200);
                     break;
 
@@ -140,6 +148,7 @@ class Seomatic_MetaFieldType extends BaseFieldType
                             200);
                     break;
 
+                case "FocusPoint_FocusPoint":
                 case "Assets":
                     $imageFieldList[$field->handle] = $field->name;
                     $img = $this->element[$field->handle]->first();
@@ -228,6 +237,7 @@ class Seomatic_MetaFieldType extends BaseFieldType
                 case "PlainText":
                 case "RichText":
                 case "RedactorI":
+                case "PreparseField_Preparse":
                     $fieldList[$field->handle] = $field->name;
                     break;
 
@@ -235,10 +245,15 @@ class Seomatic_MetaFieldType extends BaseFieldType
                     $fieldList[$field->handle] = $field->name;
                     break;
 
+                case "Neo":
+                    $fieldList[$field->handle] = $field->name;
+                    break;
+
                 case "Tags":
                     $fieldList[$field->handle] = $field->name;
                     break;
 
+                case "FocusPoint_FocusPoint":
                 case "Assets":
                     $imageFieldList[$field->handle] = $field->name;
                     break;
@@ -357,6 +372,11 @@ class Seomatic_MetaFieldType extends BaseFieldType
                     if (isset($element[$value->seoTitleSourceField]))
                     {
                         $value->seoTitle = craft()->seomatic->getTextFromEntryField($element[$value->seoTitleSourceField]);
+                        if (craft()->config->get("truncateTitleTags", "seomatic"))
+                        {
+                            $truncLength = craft()->config->get("maxTitleLength", "seomatic");
+                            $value->seoTitle = craft()->seomatic->truncateStringOnWord($value->seoTitle, $truncLength);
+                        }
                     }
                 break;
 
@@ -371,6 +391,11 @@ class Seomatic_MetaFieldType extends BaseFieldType
                     if (isset($element[$value->seoDescriptionSourceField]))
                     {
                         $value->seoDescription = craft()->seomatic->getTextFromEntryField($element[$value->seoDescriptionSourceField]);
+                        if (craft()->config->get("truncateDescriptionTags", "seomatic"))
+                        {
+                            $truncLength = craft()->config->get("maxDescriptionLength", "seomatic");
+                            $value->seoDescription = craft()->seomatic->truncateStringOnWord($value->seoDescription, $truncLength);
+                        }
                     }
                 break;
 
@@ -385,6 +410,11 @@ class Seomatic_MetaFieldType extends BaseFieldType
                     if (isset($element[$value->seoKeywordsSourceField]))
                     {
                         $value->seoKeywords = craft()->seomatic->getTextFromEntryField($element[$value->seoKeywordsSourceField]);
+                        if (craft()->config->get("truncateKeywordsTags", "seomatic"))
+                        {
+                            $truncLength = craft()->config->get("maxKeywordsLength", "seomatic");
+                            $value->seoKeywords = craft()->seomatic->truncateStringOnWord($value->seoKeywords, $truncLength);
+                        }
                     }
                 break;
 
