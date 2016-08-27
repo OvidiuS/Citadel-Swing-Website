@@ -2,10 +2,9 @@ $primary-color: #d90246;
 $text-color: #333;
 $background-color: #fff;
 $background-color-alternate: #d0d0d0;
+$header-fancy-shadow: 0 3px 0 #bdb8b8, -5px 9px 0 hsla(0, 0%, 100%, .35);
 
-$text-shadow: #bdb8b8;
 $header-light-text: #ffa3a3;
-
 $adam-rita-color: #0f0;
 $maxime-torri-color: #ff0;
 $blackest-color: #000;
@@ -77,7 +76,7 @@ h3 {
   font-size: 95px;
   line-height: .9em;
   padding-left: 6%;
-  text-shadow: 0 3px 0 $text-shadow, -5px 9px 0 hsla(0, 0%, 100%, .35);
+  text-shadow: $header-fancy-shadow;
   text-transform: uppercase;
 }
 
