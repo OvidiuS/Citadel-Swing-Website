@@ -1,7 +1,9 @@
 var gulp  = require('gulp'),
     gutil = require('gulp-util');
     sass = require('gulp-sass');
+    autoprefixer = require('gulp-autoprefixer');
     browserSync = require('browser-sync').create(); // create a browser sync instance.
+    plumber = require('gulp-plumber');
     sourcemaps = require('gulp-sourcemaps');
 
 // create a default task and just log a message
@@ -10,12 +12,10 @@ var gulp  = require('gulp'),
 // });
 
 var paths = {
-
   styles: "craft/templates/front-end-sources/scss/**/*.scss",
-
   source: "source"
-
 };
+
 gulp.task('browser-sync', function() {
     browserSync.init({
         proxy: {
@@ -29,8 +29,10 @@ gulp.task('browser-sync', function() {
 // Compile styles and copy them to the assets css directory.
 gulp.task('styles', function () {
   return gulp.src(paths.styles)
+    //.pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass())
+    .pipe(autoprefixer({ browsers: ['last 5 versions']}))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('assets/css'));
 });

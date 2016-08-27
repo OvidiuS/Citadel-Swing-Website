@@ -3,16 +3,42 @@
 
 $slicer-breakpoints: 0 400px 600px 991px 1050px;
 
-$primary-color: #d90246;
-$text-color: #333;
-$background-color: #fff;
-$background-color-alternate: #d0d0d0;
+// main colors definitions
+$color-red-ribbon: #d90246;
+$color-mine-shaft: #333;
+$color-white: #fff;
+$color-alto: #d0d0d0;
+
+// secondary color definitions
+$color-sweet-pink: #ffa3a3;
+$color-green: #0f0;
+$color-yellow: #ff0;
+$color-black: #000;
+$color-sundown: #ffb8b8;
+$color-razzmatazz: #db1464;
+$color-contessa: #cf6f6f;
+$color-vivid-tangerine: #ff8b8b;
+$color-varden: #fff7e2;
+$color-cosmos: #ffd1d1;
+$color-dove-gray: #6f6f6f;
+$color-cornflower-lilac: #ffa6a6;
+$color-really-transparent-black: rgba(0, 0, 0, .4);
+$color-mercury: #e6e6e6;
+$color-dolly: #ffff86;
+$color-shiraz: #b9053e;
+$color-snow-flurry: #e7ffd1;
+
+// semantic color assignments
+$primary-color: $color-red-ribbon;
+$text-color: $color-mine-shaft;
+$background-color: $color-white;
+$background-color-alternate: $color-mercury;
 $header-fancy-shadow: 0 3px 0 #bdb8b8, -5px 9px 0 hsla(0, 0%, 100%, .35);
 
-$header-light-text: #ffa3a3;
-$adam-rita-color: #0f0;
-$maxime-torri-color: #ff0;
-$blackest-color: #000;
+$header-light-text: $color-sweet-pink;
+$adam-rita-color: $color-green;
+$maxime-torri-color: $color-yellow;
+$blackest-color: $color-black;
 
 $header-hover-color: rgba(179, 179, 179, .24);
 
@@ -109,6 +135,11 @@ h3 {
   text-align: center;
   text-transform: uppercase;
 
+  &.activeMainMenuItem {
+    color: $color-white;
+    font-weight: bold;
+  }
+
   &.w--current {
     color: $background-color;
   }
@@ -118,7 +149,7 @@ h3 {
     padding-top: 19px;
 
     &:hover {
-      color: #ffb8b8;
+      color: $color-sundown;
     }
 
     &.w--current {
@@ -188,6 +219,16 @@ h3 {
   &:hover {
     background-color: $background-color;
   }
+
+  .with {
+    color: $background-color;
+  }
+
+  background-color: $color-white;
+
+  .invitee-title {
+    color: $primary-color;
+  }
 }
 
 .invitee-image {
@@ -212,18 +253,17 @@ h3 {
   }
 
   &.join-us {
-    background-image: -webkit-linear-gradient(0deg, $background-color 44%, hsla(0, 0%, 100%, 0)), url('../images/bastion-timisoara.jpg');
-    background-image: linear-gradient(90deg, $background-color 44%, hsla(0, 0%, 100%, 0)), url('../images/bastion-timisoara.jpg');
+    background: linear-gradient(to right, $background-color 44%, hsla(0, 0%, 100%, 0) 100%), url('../images/bastion-timisoara.jpg');;
     background-position: 0 0, 100% 50%;
     background-repeat: repeat, no-repeat;
   }
 }
 
 .button {
-  background-color: #db1464;
-  border: 1px solid #ffafaf;
+  background-color: $color-razzmatazz;
+  border: 1px solid $color-sundown;
   border-radius: 2px;
-  box-shadow: 0 0 6px 0 #cf6f6f;
+  box-shadow: 0 0 6px 0 $color-contessa;
   font-family: Montserrat, sans-serif;
   font-size: 24px;
   padding: 14px 20px;
@@ -286,7 +326,7 @@ h3 {
 }
 
 .origin {
-  color: #ff8b8b;
+  color: $color-vivid-tangerine;
   font-size: 14px;
   text-shadow: none;
 }
@@ -350,14 +390,16 @@ h3 {
   margin-top: 5px;
 }
 
-.brand.floating {
-  padding-bottom: 3px;
-  padding-top: 3px;
+.brand {
+  &.floating {
+    padding-bottom: 3px;
+    padding-top: 3px;
+  }
 }
 
 .mobilenav {
   background-color: $primary-color;
-  box-shadow: 0 0 11px 0 rgba(0, 0, 0, .4);
+  box-shadow: 0 0 11px 0 $color-really-transparent-black;
   display: block;
   left: 0;
   padding-bottom: 4px;
@@ -381,11 +423,10 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 }
 
 .buyTicketsLink {
-  background-color: #fff7e2;
+  background-color: $color-varden;
   border-radius: 6px;
   border-style: solid;
   border-width: 0 0 3px;
-  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
   color: $primary-color;
   cursor: pointer;
   display: inline-block;
@@ -402,13 +443,13 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   white-space: nowrap;
 
   &:hover {
-    background-color: white;
+    background-color: $background-color;
     margin-top: 0;
   }
 }
 
 .ticketButtonText {
-  background-color: white;
+  background-color: $background-color;
   border-right: 2px dotted $primary-color;
   display: block;
   padding: 60px 39px 40px 58px;
@@ -416,20 +457,20 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 }
 
 .buyTicketsLink:hover .ticketButtonText {
-  background-color: #fff7e2;
+  background-color: $color-varden;
   padding: 70px 49px 50px 68px;
 }
 
 .mainTicketText {
   display: block;
-  text-shadow: 0 3px 0 #ffd1d1;
+  text-shadow: 0 3px 0 $color-cosmos;
   text-transform: uppercase;
 }
 
 .securePayment {
-  background-size: 20px;
   background: url('../images/payment-secure-icon.png') no-repeat center left;
-  color: #6f6f6f;
+  background-size: 20px;
+  color: $color-dove-gray;
   display: inline-block;
   font-size: 12px;
   font-weight: 400;
@@ -457,11 +498,11 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 }
 
 .securityLinksWrapper {
-  color: #ffa6a6;
+  color: $color-cornflower-lilac;
   font-size: 12px;
 
   a {
-    color: #ffa6a6;
+    color: $color-cornflower-lilac;
     font-size: 12px;
   }
 }
@@ -474,16 +515,11 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   width: 50%;
 
   iframe {
-    border: none;
+    border: 0;
     height: 100%;
     position: absolute;
     width: 50%;
   }
-}
-
-.main-menu-item.activeMainMenuItem {
-  color: #000;
-  font-weight: bold;
 }
 
 .smallHeroheading {
@@ -491,29 +527,15 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 }
 
 .ticketInstructions {
-  padding: 20px 2% 0 2%;
+  padding: 20px 2% 0;
 }
 
-/*home pro bios*/
+// home pro bios
 
 .pro-bio-home {
-  background-color: white;
+  background-color: $color-white;
   display: none;
   padding: 20px 5%;
-}
-
-.selectedForBio .with {
-  color: $background-color;
-}
-
-.pro-bio-home h4 {}
-
-.selectedForBio {
-  background-color: white;
-
-  .invitee-title {
-    color: $primary-color;
-  }
 }
 
 .proBioMoreLink {
@@ -528,13 +550,14 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 .mobileBio {
   margin-top: 0;
   padding-top: 0;
+
   h4 {
     margin-top: 0;
     padding-top: 0;
   }
 }
 
-/* Schedule */
+// Schedule
 
 .scheduleTable {
   margin-bottom: 75px;
@@ -551,12 +574,12 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   }
 
   .alternateTableRow {
-    background-color: #e6e6e6;
+    background-color: $color-mercury;
   }
 
   td {
-    border-bottom: 1px solid $background-color-alternate;
-    padding: 5px;
+    border-bottom: 1px solid $background-color;
+    padding: 20px;
     text-align: center;
   }
 
@@ -564,66 +587,33 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
     min-width: 100px;
     width: 15%;
   }
-}
 
-.scheduleLvl23 {
-  background-color: #ffff86;
-  padding: 3px;
-}
-
-.scheduleLvl4 {
-  background-color: #95ff95;
-  padding: 3px;
-}
-
-.shceduleMoreLink {
-  background: url('../images/more-less.png') no-repeat top left;
-  color: $primary-color;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: bold;
-  margin-left: 3px;
-  padding: 6px 0 6px 0;
-  text-indent: -9999em;
-  width: 32px;
-
-  &.active {
-    background-position: bottom left;
-    color: $background-color;
-  }
-}
-
-.scheduleTable {
   .scheduleMoreInfo {
     color: $background-color;
     padding: 20px;
     text-align: left;
+
+    a {
+      color: $color-snow-flurry;
+    }
   }
+
   .detailsRow {
-    background-color: #b9053e;
+    background-color: $color-shiraz;
     display: none;
   }
-  .rowDetailsVisible td {
-    border-bottom: 0;
+
+  .rowDetailsVisible {
+    td {
+      border-bottom: 0;
+    }
   }
+
   .cellDetailsVisible {
-    background-color: $primary-color !important;
+    background-color: $primary-color;
     color: $background-color;
   }
-}
 
-.cellDetailsVisible {
-  .scheduleLvl23, .scheduleLvl4 {
-    background-color: transparent;
-    color: $background-color;
-  }
-}
-
-.redTest {
-  background-color: red;
-}
-
-.scheduleTable {
   .short {
     height: 60px;
   }
@@ -636,26 +626,44 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
     height: 140px;
   }
 
-  .scheduleMoreInfo a {
-    color: #e7ffd1;
-  }
-
   .scheduleHeaderRow {
     background-color: $text-color;
     color: $background-color;
-    td {
-      border-bottom: 1px solid white;
-      padding: 20px 20px;
-    }
+
+  }
+}
+
+.shceduleMoreLink {
+  background: url('../images/more-less.png') no-repeat top left;
+  color: $primary-color;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 3px;
+  padding: 6px 0;
+  text-indent: -9999em;
+  width: 32px;
+
+  &.active {
+    background-position: bottom left;
+    color: $background-color;
+  }
+}
+
+.cellDetailsVisible {
+  .scheduleLvl23,
+  .scheduleLvl4 {
+    background-color: transparent;
+    color: $background-color;
   }
 }
 
 .tableHeaderBorderRight {
-  border-right: 1px solid white;
+  border-right: 1px solid $color-white;
 }
 
 .tableHeaderBorderRightDashed {
-  border-right: 1px dashed white;
+  border-right: 1px dashed $color-white;
 }
 
 .timeColumn {
@@ -667,7 +675,7 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 }
 
 .detailsrowBorderRightDashed {
-  border-right: 1px dashed white;
+  border-right: 1px dashed $color-white;
 }
 
 .cellAdamRita {
@@ -678,21 +686,21 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   background-color: $maxime-torri-color;
 }
 
-/*Footer*/
+// Footer
 
 .footerSection {
   background-color: $primary-color;
-  border-bottom: 3px solid #bbb;
+  border-bottom: 3px solid $color-mercury;
   color: $background-color;
-  padding: 25px 20px 20px 20px;
+  padding: 25px 20px 20px;
   text-align: center;
 
   a {
-    color: #fff7e2;
+    color: $color-varden;
   }
 }
 
-/*404*/
+// 404
 
 .textContainer404 {
   float: right;
@@ -722,10 +730,10 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   color: $background-color;
 }
 
-/* THE PLAN */
+// THE PLAN 
 
 .alternateSection {
-  background-color: #e2e2e2;
+  background-color: $background-color-alternate;
 }
 
 .center {
@@ -738,7 +746,7 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   margin-top: 20px;
 
   &:hover {
-    background-color: #db1464;
+    background-color: $color-razzmatazz;
   }
 }
 
@@ -746,6 +754,13 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   .main-menu-item {
     color: $primary-color;
     text-align: center;
+
+    &.w--current,
+    &.float {
+      .w--current {
+        color: $color-black;
+      }
+    }
   }
 
   .w-nav-menu {
@@ -760,12 +775,6 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 
   .w--nav-menu-open {
     right: 0;
-  }
-
-  .main-menu-item {
-    &.w--current, &.float.w--current {
-      color: #000;
-    }
   }
 
   .main-menu-icon {
@@ -795,6 +804,24 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 
   .nav-menu {
     background-color: $background-color;
+
+    .menu-dropdown-list {
+      a {
+        background-color: $color-mercury;
+        border: 0;
+      }
+
+      &.w--open {
+        box-shadow: none;
+      }
+    }
+
+    .w-dropdown-toggle {
+      .w--open {
+        border-bottom: 0;
+        box-shadow: none;
+      }
+    }
   }
 
   .brand {
@@ -816,28 +843,10 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
     width: 100%;
 
     iframe {
-      border: none;
+      border: 0;
       height: 100%;
       position: absolute;
       width: 100%;
-    }
-  }
-
-  .nav-menu {
-    .menu-dropdown-list {
-      a {
-        background-color: #ececec;
-        border: none;
-      }
-
-      &.w--open {
-        box-shadow: none;
-      }
-    }
-
-    .w-dropdown-toggle.w--open {
-      border-bottom: none;
-      box-shadow: none;
     }
   }
 
