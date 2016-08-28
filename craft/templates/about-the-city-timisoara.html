@@ -1,0 +1,61 @@
+{% extends "_layout" %}
+
+{% block heroContent %}
+	<h1 class="hero-heading smallHeroheading">About Our City - Timisoara</h1>
+{% endblock %}
+
+{% block content %}
+
+	<div class="w-section section"> 
+
+		<div class="w-container container">
+
+	 		<p>Because Timișoara’s got everything from garden dwarves to feisty nightlife options and delicious calorie-bomb pancakes (ask a local about the <strong>Clătite Bănăţene</strong>), and not to forget West Coast Swing enthusiasts, we are looking forward to welcoming you there in September.</p>
+
+	 		<p>Check out some highlights and factoids below that'll get your started:</p>
+
+	 	</div>
+	 	<!-- /.w-container container alternateSection-->
+	</div>
+	<!-- /.w-section section -->
+
+	{% for block in entry.timisoaraFacts %}
+
+		{% if block.type == "fact" %}
+			{% if loop.index is odd %}
+				{% set layoutClass = "left" %}
+			{% else %}
+				{% set layoutClass = "right" %}
+			{% endif %}
+	<div class="w-section section alternateBgCovers{% if loop.last %} lastFact{% endif %}{% if loop.first %} firstFact{% endif %}">
+		<div class="halfBg {{layoutClass}}HalfBg">
+			<div class="coverImageContainer">
+				<img src="{{ block.image|length ? block.image.first().url : 'http://placehold.it/1200x400'}}" alt="{{ block.heading }}" />
+			</div>
+		</div>
+			<!-- /.halfBg leftHalfBg -->
+			<div class="w-container container halfBgContainer over-{{ layoutClass }}">
+				<h2>{{ block.heading }}</h2>
+				{{ block.body }}
+			</div>
+			<!-- /.w-container container -->
+	</div>
+	<!-- /.w-section section -->		
+
+		{% else %}	
+			<p>ERROR: THIS IS NOT A RECOGNIZED BLOCK.</p>
+		{% endif %}
+	{% endfor %}
+
+	<div class="w-section section"> 
+
+		<div class="w-container container">
+
+	 		<p>We really hope we've managed to pique your interest in our beautifyl city and we hope to see you all soon!</p>
+
+	 	</div>
+	 	<!-- /.w-container container alternateSection-->
+	</div>
+	<!-- /.w-section section -->
+
+{% endblock %}

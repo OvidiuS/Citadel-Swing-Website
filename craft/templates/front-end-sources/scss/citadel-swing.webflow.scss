@@ -1,7 +1,7 @@
 @import 'node_modules/breakpoint-sass/stylesheets/breakpoint';
 @import 'node_modules/breakpoint-slicer/stylesheets/breakpoint-slicer';
 
-$slicer-breakpoints: 0 400px 600px 991px 1050px;
+$slicer-breakpoints: 0 479px 767px 991px 1050px;
 
 // main colors definitions
 $color-red-ribbon: #d90246;
@@ -46,11 +46,6 @@ $big-heading-font: Oswald, sans-serif;
 $subheading-font: Montserrat, sans-serif;
 
 body {
-  @include to(3) {
-    // Code from this block will only be applied to .element
-    // when browser window width is between 400px and 600px.
-    background-color: $primary-color;
-  }
   line-height: 1.5em;
 }
 
@@ -58,7 +53,7 @@ h2 {
   font-family: $big-heading-font;
   font-size: 60px;
   font-weight: 700;
-  line-height: 36px;
+  line-height: 1.3em;
   margin-bottom: 65px;
   margin-top: 20px;
   text-transform: uppercase;
@@ -70,6 +65,23 @@ h3 {
   line-height: 30px;
   margin-bottom: 10px;
   margin-top: 20px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5em;
+  margin-bottom: 1.5em;
+  margin-top: 0;
+}
+
+a {
+  color: $primary-color;
+  padding: 5px;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $background-color;
+  }
 }
 
 .hero {
@@ -256,6 +268,19 @@ h3 {
     background: linear-gradient(to right, $background-color 44%, hsla(0, 0%, 100%, 0) 100%), url('../images/bastion-timisoara.jpg');;
     background-position: 0 0, 100% 50%;
     background-repeat: repeat, no-repeat;
+  }
+
+  &.alternateBgCovers {
+    @include at(1) {
+      padding-bottom: 20px;
+      padding-top: 0;
+    }
+    position: relative;
+
+    &.firstFact,
+    &.lastFact {
+      background-color: $color-mercury;
+    }
   }
 }
 
@@ -888,12 +913,15 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 
   .section {
     padding-bottom: 56px;
-    padding-top: 56px
-;
-    &.join-us .w-container {
-      padding: 0 3%;
+    padding-top: 56px;
+
+    &.join-us {
+      .w-container {
+        padding: 0 3%;
+      }
     }
   }
+
   .other-fun-surprises {
     line-height: .6em;
     margin-top: 30px;
@@ -912,8 +940,8 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   }
 
   .container {
-    padding-right: 2%;
     padding-left: 2%;
+    padding-right: 2%;
   }
 
   .ticketInstructions {
@@ -955,8 +983,8 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
     }
 
     &.join-us {
-      background-image: -webkit-linear-gradient(0deg, $background-color 24%, hsla(0, 0%, 100%, 0.62)), url('../images/bastion-timisoara.jpg');
-      background-image: linear-gradient(90deg, $background-color 24%, hsla(0, 0%, 100%, 0.62)), url('../images/bastion-timisoara.jpg');
+      background-image: -webkit-linear-gradient(0deg, $background-color 24%, hsla(0, 0%, 100%, .62)), url('../images/bastion-timisoara.jpg');
+      background-image: linear-gradient(90deg, $background-color 24%, hsla(0, 0%, 100%, .62)), url('../images/bastion-timisoara.jpg');
       background-position: 0 0, 100% 50%;
       background-repeat: repeat, no-repeat;
     }
@@ -1049,15 +1077,22 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 
   .buyTicketsLink {
     padding: 0;
+
+    &:hover {
+      .ticketButtonText {
+        padding: 60px 39px 40px 58px;
+      }
+    }
   }
 
   .ticketButtonText {
-    padding: 31px 0 16px 0;
-    margin: 0;
     border-left: 2px dotted $primary-color;
+    margin: 0;
+    padding: 31px 0 16px;
   }
 
-  .ticketLeft, .ticketRight {
+  .ticketLeft,
+  .ticketRight {
     background-size: 20px;
   }
 
@@ -1071,10 +1106,6 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 
   .smallHeroheading {
     font-size: 46px;
-  }
-
-  .buyTicketsLink:hover .ticketButtonText {
-    padding: 60px 39px 40px 58px;
   }
 
   .copy404 {
@@ -1101,4 +1132,120 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   .scheduleMoreInfo {
     column-span: 3;
   }
+}
+
+// About Timisoara
+
+.halfBg {
+  @include at(1) {
+    position: static;
+    width: auto;
+  }
+
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 50%;
+
+  .coverImageContainer {
+    @include at(1) {
+      height: 330px;
+      position: relative;
+    }
+
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    img {
+      height: auto;
+      left: 50%;
+      max-height: none;
+      max-width: none;
+      min-height: 100%;
+      min-width: 100%;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.leftHalfBg {
+  left: 0;
+}
+
+.rightHalfBg {
+  right: 0;
+}
+
+.halfBgContainer {
+  padding-top: 20px;
+
+  &.over-left {
+
+    @include at(1) {
+      margin-left: 0;
+      padding: 0 4%;
+    }
+
+    margin-left: 50%;
+    padding-left: 2%;
+    z-index: 999;
+  }
+
+  &.over-right {
+
+    @include at(1) {
+      margin-right: 0;
+      padding: 0 4%;
+      text-align: left;
+    }
+
+    margin-right: 50%;
+    padding-right: 2%;
+    text-align: right;
+    z-index: 999;
+
+    p {
+      @include at(1) {
+        text-align: left;
+      }
+      text-align: right;
+    }
+
+  }
+
+  h2 {
+    @include at(3) {
+      font-size: 50px;
+    }
+    @include at(2) {
+      font-size: 30px;
+    }
+    @include at(1) {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    border-bottom: 3px solid $primary-color;
+    padding-bottom: 20px;
+  }
+
+  p {
+    @include at(2) {
+      font-size: 16px;
+    }
+    @include at(1) {
+      font-size: 14px;
+    }
+  }
+
 }

@@ -44,4 +44,5 @@ gulp.task('styles', function () {
 
 gulp.task('watch', [ 'browser-sync', 'styles' ], function() {
   gulp.watch([ paths.styles ], [ 'styles']);
+  gulp.watch([ "craft/templates/**/*.html" ], browserSync.reload );
 });
