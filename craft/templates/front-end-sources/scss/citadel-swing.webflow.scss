@@ -152,16 +152,13 @@ a {
     font-weight: bold;
   }
 
-  &.w--current {
-    color: $background-color;
-  }
-
   &.float {
     padding-bottom: 19px;
     padding-top: 19px;
 
     &:hover {
       color: $color-sundown;
+      background-color: green;
     }
 
     &.w--current {
@@ -184,6 +181,18 @@ a {
 
     &:hover {
       color: $blackest-color;
+    }
+  }
+
+  &.w--current {
+    background-color: $background-color;
+    color: $color-black;
+  }
+
+
+  &.w-nav-link {
+    &:hover {
+      background-color: $header-hover-color;
     }
   }
 }
@@ -718,7 +727,7 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   background-color: $primary-color;
   border-bottom: 3px solid $color-mercury;
   color: $background-color;
-  padding: 25px 20px 20px;
+  padding: 1.5em 1em 0;
   text-align: center;
 
   a {
