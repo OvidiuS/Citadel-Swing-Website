@@ -172,7 +172,7 @@ a {
     padding-top: 19px;
 
     &:hover {
-      background-color: $header-hover-color;
+      background-color: transparent;
       color: $color-sundown;
     }
 
@@ -207,7 +207,7 @@ a {
 
   &.w-nav-link {
     &:hover {
-      background-color: $header-hover-color;
+      background-color: transparent;
     }
   }
 }
@@ -697,6 +697,10 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   &.active {
     background-position: bottom left;
     color: $background-color;
+  }
+
+  &:hover {
+    background-color: transparent;
   }
 }
 
