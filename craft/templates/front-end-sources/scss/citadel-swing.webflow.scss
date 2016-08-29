@@ -10,23 +10,33 @@ $color-white: #fff;
 $color-alto: #d0d0d0;
 
 // secondary color definitions
-$color-sweet-pink: #ffa3a3;
+
+// reds
+$color-shiraz: #b9053e; // deep dark red
+$color-razzmatazz: #db1464; // deep strong pink-purple
+$color-contessa: #cf6f6f; // desaturated medium red (brick)
+$color-vivid-tangerine: #ff8b8b; // lighter contessa
+$color-sundown: #ffb8b8; // light pink
+$color-cornflower-lilac: #ffa6a6; // lighter sundown
+
+// yellows
+$color-dolly: #ffff86; // strong yellow
+$color-varden: #fff7e2; // pale yellow
+
+// greens 
+$color-snow-flurry: #e7ffd1; // light pale green
+
+// primaries
 $color-green: #0f0;
 $color-yellow: #ff0;
 $color-black: #000;
-$color-sundown: #ffb8b8;
-$color-razzmatazz: #db1464;
-$color-contessa: #cf6f6f;
-$color-vivid-tangerine: #ff8b8b;
-$color-varden: #fff7e2;
-$color-cosmos: #ffd1d1;
-$color-dove-gray: #6f6f6f;
-$color-cornflower-lilac: #ffa6a6;
+
+// grays
+$color-dove-gray: #6f6f6f; //medium grey
+$color-mercury: #e6e6e6; // light grey
 $color-really-transparent-black: rgba(0, 0, 0, .4);
-$color-mercury: #e6e6e6;
-$color-dolly: #ffff86;
-$color-shiraz: #b9053e;
-$color-snow-flurry: #e7ffd1;
+
+
 
 // semantic color assignments
 $primary-color: $color-red-ribbon;
@@ -35,7 +45,7 @@ $background-color: $color-white;
 $background-color-alternate: $color-mercury;
 $header-fancy-shadow: 0 3px 0 #bdb8b8, -5px 9px 0 hsla(0, 0%, 100%, .35);
 
-$header-light-text: $color-sweet-pink;
+$header-light-text: $color-sundown;
 $adam-rita-color: $color-green;
 $maxime-torri-color: $color-yellow;
 $blackest-color: $color-black;
@@ -67,11 +77,16 @@ h3 {
   margin-top: 20px;
 }
 
-p {
+p,
+li {
   font-size: 18px;
   line-height: 1.5em;
   margin-bottom: 1.5em;
   margin-top: 0;
+}
+
+li {
+  margin-bottom: 0.5em;
 }
 
 a {
@@ -157,8 +172,8 @@ a {
     padding-top: 19px;
 
     &:hover {
+      background-color: $header-hover-color;
       color: $color-sundown;
-      background-color: green;
     }
 
     &.w--current {
@@ -497,7 +512,7 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 
 .mainTicketText {
   display: block;
-  text-shadow: 0 3px 0 $color-cosmos;
+  text-shadow: 0 3px 0 $color-sundown;
   text-transform: uppercase;
 }
 
@@ -1246,8 +1261,8 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
     }
 
     border-bottom: 3px solid $primary-color;
-    padding-bottom: 20px;
     margin-bottom: .4em;
+    padding-bottom: 20px;
   }
 
   p {
@@ -1260,3 +1275,58 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
   }
 
 }
+
+// Pricing Page
+.ticketWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ticket {
+  @include to(2) {
+    width: 100%;
+  }
+
+  background-color: $color-varden;
+  border: 2px solid $color-mercury;
+  border-radius: 10px;
+  margin: 10px 1%;
+  padding: 20px 2%;
+  width: 48%;
+
+  &.expired {
+
+    background-color: $color-mercury;
+
+    h2,
+    h3,
+    p {
+      color: $color-dove-gray;
+    }
+  }
+ 
+  &.main {
+    background-color: $color-sundown;
+  }
+
+  &.upcoming {
+    background-color: $color-mercury;
+  }
+
+  &.special {
+    background-color: $color-snow-flurry;
+  }
+
+
+
+  h2 {
+    display: block;
+    font-size: 2.2em;
+    margin-bottom: 1em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+}
+
