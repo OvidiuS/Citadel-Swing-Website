@@ -550,7 +550,7 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 
 .ticketIframeWrapper {
   background: url('../images/gears.gif') no-repeat center 70px;
-  height: 880px;
+  height: 1040px;
   margin: 0 auto;
   padding-top: 20px;
   width: 50%;
@@ -1152,6 +1152,12 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
 
   .scheduleMoreInfo {
     column-span: 3;
+  }
+
+  .ticketIframeWrapper {
+    iframe {
+      height: 140%;
+    }
   }
 }
 
