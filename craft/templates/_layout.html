@@ -103,7 +103,8 @@
 						<a class="main-menu-item w-nav-link" href="/">Home</a>
 					{% endif %}
 					<div class="w-dropdown" data-delay="0">
-						<div class="main-menu-item w-dropdown-toggle">
+						<div class="main-menu-item w-dropdown-toggle{% if entry.section.handle == "schedule" or entry.section.handle == "faqs" or entry.section.handle == "thePlan" or entry.section.handle == "prices" %} w--current{%endif %}"
+						>
 							<div>Info</div>
 							<div class="w-icon-dropdown-toggle"></div>
 						</div>
