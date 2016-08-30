@@ -85,6 +85,15 @@ li {
   margin-top: 0;
 }
 
+p {
+  a {
+    &:hover {
+      background-color: $primary-color;
+      color: $background-color;
+    }
+  }
+}
+
 li {
   margin-bottom: 0.5em;
 }
@@ -92,11 +101,6 @@ li {
 a {
   color: $primary-color;
   padding: 5px;
-
-  &:hover {
-    background-color: $primary-color;
-    color: $background-color;
-  }
 }
 
 .hero {
