@@ -85,15 +85,6 @@ li {
   margin-top: 0;
 }
 
-p {
-  a {
-    &:hover {
-      background-color: $primary-color;
-      color: $background-color;
-    }
-  }
-}
-
 li {
   margin-bottom: 0.5em;
 }
