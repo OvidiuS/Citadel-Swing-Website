@@ -1,0 +1,85 @@
+{% extends "_layout" %}
+
+{% block heroContent %}
+	<h1 class="hero-heading smallHeroheading">About Our City - Timisoara</h1>
+{% endblock %}
+
+{% block content %}
+
+	<div class="w-section section"> 
+
+		<div class="w-container container">
+
+	 		<p>Before being event organizers and West Coast Swing promoters, we were (and still are) dancers. As dancers we found it hard to find and purchase dance wear. We struggled to find the right pair of dancing shoes &amp; clothing to complement us on the dancefloor. We thought of many ways to make this endeavour easier for us and for you, so the Marketplace is the best idea we had so far.</p>
+
+			<h2>So what is this Marketplace about?</h2>
+			
+			<h3>Dancers</h3>
+			<p>First of all, it's about you, the dancer! If you want to get that new pair of shoes or cool shirts and accessories, you will have the chance to browse through the available items.</p>
+			
+			<h3>Creatives</h3>
+			<p>Second of all, it's about you, the creative soul! If you personalize or distribute dancing shoes, clothing or accessories make the most fo this opportunity and show them all off. Bring your stuff and we will make sure that you have a reserved spot to advertise &amp; sell it.</p>
+			
+			<p>There are no costs involved, we want you to keep all the profits. Please contact us as soon as you decide to participate in the marketplace, so that we can take care of the organisational aspects.</p>
+			
+			<h3>Manufacturers</h3>
+			<p>And last but not least, it's about them, our local manufacturers &amp; partners. They all make our lives as dancers much easier and we feel that it is our responsibility to help them get to know you and your needs. Below you can find a list of partners who already confirmed their attendance to the Citadel Swing Marketplace. Please check back often, as this list will get updated as soon as others will confirm.</p>
+
+			<p><strong>The Marketplace will be held on Sunday from 16:30 until 18:30</strong>. See you there!</p>
+
+	 	</div>
+	 	<!-- /.w-container container alternateSection-->
+	</div>
+	<!-- /.w-section section -->
+
+	
+
+	<div class="w-section section"> 
+
+		<div class="w-container container">
+			
+			<h2>Marketplace Partners</h2>
+
+	 		<h3>Mihuta International</h3>
+	 		<p>Mihuta International is a local footwear manufacturer. They're making both mass market shoes as well as custom ones. Mihuta International has 25 years of shoemaking experience, which puts them on the top of our list when it comes to custom dancing shoes. His clients range from people with certain disabilities to professional dancers. They are not only producing for Romania but for a lot of other countries as well, like: Italy, Germany, Austria, the list could go on. We highly recommend you to check out their booth during the Marketplace. We think you'll see that their main drive is their customers` satisfaction.</p>
+			
+			<h3>Carola Szucsik Design</h3>
+			<p>Carola Szucsik Design welcomes all eclectic style lovers with warmth and smile. The CSD creations speak about attitude and are especially designed for women that know what they want, have high selfesteem and are confident to dear and overcome all obstacles with class. CSD invites to discover oneself. If you want to change your style and redefine your personality through bold colors, textures and creative lines, CSD is the store to step into. Our logo, the pink cat, relates to femininity and the diva attitude that all ladies should have. She`s always confident and whatever happens will always land safely on 4 paws and look spectacular.</p>
+
+			<h3>Lili Marleen</h3>
+			<p>Lili Marleen is the new vintage concept store. For the past five years she has been making use of creativity and handcrafting to bring back to live vintage objects. Purses, shoes, accessories, jewelery and all types of objects that can be recycled into a piece of art are given a new vibe and purpose. Lili Marleen tells a story with every object she transforms.</p>
+
+	 	</div>
+	 	<!-- /.w-container container alternateSection-->
+	</div>
+	<!-- /.w-section section -->
+
+	{% for block in entry.timisoaraFacts %}
+
+		{% if block.type == "fact" %}
+			{% if loop.index is odd %}
+				{% set layoutClass = "left" %}
+			{% else %}
+				{% set layoutClass = "right" %}
+			{% endif %}
+	<div class="w-section section alternateBgCovers{% if loop.last %} lastFact{% endif %}{% if loop.first %} firstFact{% endif %}">
+		<div class="halfBg {{layoutClass}}HalfBg">
+			<div class="coverImageContainer">
+				<img src="{{ block.image|length ? block.image.first().url : 'http://placehold.it/1200x400'}}" alt="{{ block.heading }}" />
+			</div>
+		</div>
+			<!-- /.halfBg leftHalfBg -->
+			<div class="w-container container halfBgContainer over-{{ layoutClass }}">
+				<h2>{{ block.heading }}</h2>
+				{{ block.body }}
+			</div>
+			<!-- /.w-container container -->
+	</div>
+	<!-- /.w-section section -->		
+
+		{% else %}	
+			<p>ERROR: THIS IS NOT A RECOGNIZED BLOCK.</p>
+		{% endif %}
+	{% endfor %}
+
+{% endblock %}
