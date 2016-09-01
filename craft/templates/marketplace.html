@@ -54,7 +54,9 @@
 	</div>
 	<!-- /.w-section section -->
 
+	{% for block in entry.timisoaraFacts %}
 
+		{% if block.type == "fact" %}
 			{% if loop.index is odd %}
 				{% set layoutClass = "left" %}
 			{% else %}
