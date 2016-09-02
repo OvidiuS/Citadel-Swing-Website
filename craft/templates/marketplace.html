@@ -17,7 +17,7 @@
 	</div>
 	<!-- /.w-section section -->
 
-		<div class="w-section section alternateSection"> 
+	<div class="w-section section alternateSection"> 
 
 		<div class="w-container container">
 
@@ -33,7 +33,7 @@
 			
 			<h3>Manufacturers</h3>
 
-			<p>And last but not least, it's about them, our local manufacturers &amp; partners. They all make our lives as dancers much easier and we feel that it is our responsibility to help them get to know you and your needs. Below you can find a list of partners who already confirmed their attendance to the Citadel Swing Marketplace. Please check back often, as this list will get updated as soon as others will confirm.</p>
+			<p>And last but not least, it's about them, our local manufacturers &amp; partners. They all make our lives as dancers much easier and we feel that it is our responsibility to help them get to know you and your needs. Below you can find a list of partners who already confirmed their attendance to the Citadel Swing Marketplace.</p>
 
 			<p><strong>The Marketplace will be held on Sunday from 16:30 until 18:30</strong>. See you there!</p>
 
@@ -42,6 +42,19 @@
 	</div>
 	<!-- /.w-section section -->
 
+	<div class="w-section section alternateSection red alternateTop"> 
+
+		<div class="w-container container">
+
+			<h2>Marketplace Partners</h2>
+
+			<p><strong>Please check back often, as this list will get updated as soon as others will confirm.</strong>.</p>
+
+	 	</div>
+	 	<!-- /.w-container container alternateSection-->
+	</div>
+	<!-- /.w-section section -->
+	
 
 	{% for block in entry.partners %}
 
@@ -53,7 +66,7 @@
 				{% set layoutClass = "right" %}
 			{% endif %}
 
-	<div class="w-section section alternateBgCovers{% if loop.last %} lastFact{% endif %}{% if loop.first %} firstFact{% endif %}">
+	<div class="w-section section alternateBgCovers">
 
 		<div class="halfBg {{layoutClass}}HalfBg">
 			<div class="coverImageContainer">
