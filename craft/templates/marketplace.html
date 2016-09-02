@@ -43,31 +43,9 @@
 	<!-- /.w-section section -->
 
 
-	<div class="w-section section"> 
+	{% for block in entry.partners %}
 
-
-		<div class="w-container container">
-			
-			<h2>Marketplace Partners</h2>
-
-	 		<h3>Mihuta International</h3>
-	 		<p>Mihuta International is a local footwear manufacturer. They're making both mass market shoes as well as custom ones. Mihuta International has 25 years of shoemaking experience, which puts them on the top of our list when it comes to custom dancing shoes. His clients range from people with certain disabilities to professional dancers. They are not only producing for Romania but for a lot of other countries as well, like: Italy, Germany, Austria, the list could go on. We highly recommend you to check out their booth during the Marketplace. We think you'll see that their main drive is their customers` satisfaction.</p>
-			
-			<h3>Carola Szucsik Design</h3>
-			<p>Carola Szucsik Design welcomes all eclectic style lovers with warmth and smile. The CSD creations speak about attitude and are especially designed for women that know what they want, have high selfesteem and are confident to dear and overcome all obstacles with class. CSD invites to discover oneself. If you want to change your style and redefine your personality through bold colors, textures and creative lines, CSD is the store to step into. Our logo, the pink cat, relates to femininity and the diva attitude that all ladies should have. She`s always confident and whatever happens will always land safely on 4 paws and look spectacular.</p>
-
-			<h3>Lili Marleen</h3>
-			<p>Lili Marleen is the new vintage concept store. For the past five years she has been making use of creativity and handcrafting to bring back to live vintage objects. Purses, shoes, accessories, jewelery and all types of objects that can be recycled into a piece of art are given a new vibe and purpose. Lili Marleen tells a story with every object she transforms.</p>
-
-
-	 	</div>
-	 	<!-- /.w-container container alternateSection-->
-	</div>
-	<!-- /.w-section section -->
-
-	{% for block in entry.timisoaraFacts %}
-
-		{% if block.type == "fact" %}
+		{% if block.type == "partner" %}
 
 			{% if loop.index is odd %}
 				{% set layoutClass = "left" %}
