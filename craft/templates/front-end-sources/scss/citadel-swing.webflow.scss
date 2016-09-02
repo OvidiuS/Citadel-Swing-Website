@@ -85,6 +85,12 @@ li {
   margin-top: 0;
 }
 
+p {
+  &.bigSolo {
+    font-size: 1.8em;
+  }
+}
+
 li {
   margin-bottom: 0.5em;
 }
@@ -268,7 +274,13 @@ li {
     background-color: $primary-color;
     border-bottom: 11px none $background-color;
     border-top: 8px dashed $background-color;
+    color: $background-color;
     padding-top: 106px;
+    
+    &.alternateTop {
+      border-color: $background-color-alternate;
+    }
+
   }
 
   &.join-us {
@@ -285,7 +297,8 @@ li {
     position: relative;
 
     &.firstFact,
-    &.lastFact {
+    &.lastFact,
+    &.alternateBg {
       background-color: $color-mercury;
     }
   }
@@ -1339,4 +1352,3 @@ html.w-mod-js *[data-ix="hide-scroll-nav"] {
     font-size: 1.5em;
   }
 }
-
